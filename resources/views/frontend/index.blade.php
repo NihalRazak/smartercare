@@ -29,7 +29,7 @@
                     <a href="/search/">
                         <img class="search-now" id="search_now_5" src="/img/Search-Button.png" />
                     </a>
-                    <a href="/search/">
+                    <a href="/admin/subscribe/">
                         <img class="search-now" id="search_now_6" src="/img/Subscribe-Button.png" />
                     </a>
                     <iframe loading="lazy" title="Why You Should Use Smarter Search.mp4" src="https://player.vimeo.com/video/592753989?dnt=1&amp;app_id=122963&amp;h=34761efa47" width="1200" height="675" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen=""></iframe>
