@@ -1,0 +1,106 @@
+body {
+    color: #02026d;
+}
+
+.navbar {
+    background-color: #02026d;
+}
+
+.navbar-dark .navbar-brand, .navbar-dark .nav-link {
+    color: white !important;
+}
+
+.navbar-light .navbar-nav {
+    width: 100%;
+    justify-content: flex-end;
+}
+
+select {
+    height: 38px;
+    border: 3px solid #02026d !important;
+    border-radius: 5px !important;
+}
+
+input {
+    border: 3px solid #02026d !important;
+    border-radius: 5px !important;
+}
+
+#logo {
+    max-width: 100%;
+}
+
+.logo-image {
+    margin: 30px auto;
+    height: 60px;
+    object-fit: contain;
+}
+
+#nav-logo {
+    height: 32px;
+}
+
+#nav-logo_1 {
+    max-width: 120px;
+}
+
+.header-title {
+    font-size: 48px;
+    line-height: 1;
+    margin: 0;
+}
+
+.sub-header-title {
+    font-size: 31px;
+}
+
+.tab {
+    margin-top: 35px;
+}
+
+.provider {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.facility_name {
+    margin: 0;
+    cursor: pointer;
+    color: #02026d;
+}
+
+.address, .telephone {
+    margin: 0;
+    font-size: 12px;
+    color: #02026d;
+}
+
+.alert-message {
+    width: 100%;
+    padding: 5px 10px;
+    border: 1px solid #ff0000;
+    background-color: #ffe9e9;
+    border-radius: 5px;
+    color: #ff0000;
+}
+
+@media only screen and (max-width: 600px) {
+    .header-title {
+        display: none;
+    }
+
+    .sub-header-title {
+        font-size: 25px;
+        margin-top: 10px;
+    }
+    
+    .logo-image {
+        margin: 10px auto;
+        height: 50px;
+        object-fit: contain;
+    }
+    
+    #logo {
+        margin-top: 0;
+    }
+}

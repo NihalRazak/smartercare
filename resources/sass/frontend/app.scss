@@ -1,0 +1,71 @@
+@import "../global";
+@import "global";
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+@import './main.scss';
+@import './home.scss';
+@import './smartercare.scss';
+
+html, body {
+    background-color: #fff;
+    color: #636b6f;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 200;
+    margin: 0;
+}
+
+.flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.position-ref {
+    position: relative;
+}
+
+.top-right {
+    position: absolute;
+    right: 10px;
+    top: 18px;
+}
+
+.content {
+    text-align: center;
+}
+
+.title {
+    font-size: 84px;
+}
+
+.links > a {
+    color: #ffffff;
+    padding: 0 25px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.m-b-md {
+    margin-bottom: 30px;
+}
+
+.nav-auth-item {
+    display: none;
+}
+
+@media only screen and (max-width: 992px) {
+    .links {
+        display: none;
+    }
+    
+    .nav-auth-item {
+        display: list-item;
+    }
+}
