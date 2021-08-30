@@ -1,5 +1,5 @@
 <template>
-    <span>Laravel Boilerplate</span>
+    <span>360Smartercare</span>
 </template>
 
 <script>
