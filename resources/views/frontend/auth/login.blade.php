@@ -57,6 +57,13 @@
                                     <x-utils.link :href="route('frontend.auth.password.request')" class="btn btn-link" :text="__('Forgot Your Password?')" />
                                 </div>
                             </div><!--form-group-->
+                            
+
+                            <div class="form-group row mb-0">
+                                <div class="col-md-8 offset-md-4">
+                                    <x-utils.link :href="route('frontend.auth.register')" class="btn btn-link" :text="__('Create a new account.')" />
+                                </div>
+                            </div><!--form-group-->
 
                             <div class="text-center">
                                 @include('frontend.auth.includes.social')
