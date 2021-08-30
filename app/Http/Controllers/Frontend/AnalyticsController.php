@@ -22,7 +22,7 @@ class AnalyticsController
     public function count_visitor(Request $request)
     {
         $user = auth()->user();
-        $company = isset($user) ? $user->company->name : "search";
+        $company = isset($user->company) ? $user->company->name : "search";
         $today = date("Y-m-d");
         $count = Visitor::where('company', $company)
                         ->where('visit_date', $today)
@@ -42,7 +42,7 @@ class AnalyticsController
     public function count_through(Request $request)
     {
         $user = auth()->user();
-        $company = isset($user) ? $user->company->name : "search";
+        $company = isset($user->company) ? $user->company->name : "search";
         $through = isset($request->through) ? $request->through : NULL;
         $today = date("Y-m-d");
         $count = Through::where('company', $company)
