@@ -68,7 +68,7 @@ class AnalyticsController
     public function count_method(Request $request)
     {
         $user = auth()->user();
-        $company = isset($user) ? $user->company->name : "search";
+        $company = isset($user->company) ? $user->company->name : "search";
         $network = isset($request->network) ? $request->network : NULL;
         $method = isset($request->method) ? $request->method : NULL;
         $today = date("Y-m-d");
