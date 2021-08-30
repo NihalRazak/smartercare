@@ -28,17 +28,17 @@ Route::post('count_through', [AnalyticsController::class, 'count_through'])->nam
 Route::post('count_method', [AnalyticsController::class, 'count_method'])->name('count_method');
 
 
-Route::get('search', [SearchController::class, 'index'])
+Route::get('/search', [SearchController::class, 'index'])
     ->name('pages.search');
 
-Route::get('services', [ServicesController::class, 'index'])
+Route::get('/services', [ServicesController::class, 'index'])
     ->name('pages.services');
 
-Route::get('360-your-smarter-choice', [YourSmarterChoiceController::class, 'index'])
+Route::get('/360-your-smarter-choice', [YourSmarterChoiceController::class, 'index'])
     ->name('pages.your_smarter_choice');
 
-Route::get('smart-sized', [SmartSizedController::class, 'index'])
+Route::get('/smart-sized', [SmartSizedController::class, 'index'])
     ->name('pages.smartsized');
 
-Route::get('about', [AboutController::class, 'index'])
+Route::get('/about', [AboutController::class, 'index'])
     ->name('pages.about');
