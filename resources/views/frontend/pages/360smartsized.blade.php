@@ -10,7 +10,7 @@
             <hr/>
             <div class="content mb-4">
                 <div class="content-block">
-                    <div style="width: 21%;">
+                    <div style="display: inline; width: 21%;">
                         <img style="width: 100%" src="/img/360-Logo-WEB-2.png" />
                     </div>
                     <div style="flex: 1; padding: 0 4%;">
@@ -29,12 +29,12 @@
                         <p style="font-size:17px">Obesity is even more pervasive with the age-adjusted prevalence of obesity among U.S. adults at 42.4%. The prevalence was 40.0% among younger adults aged 20–39, 44.8% among middle-aged adults aged 40–59, and 42.8% among older adults aged 60 and over.&nbsp;</p>
                         <p style="font-size:17px">51.7% of all Americans had at least one chronic condition and almost 31.5% of all Americans had multiple chronic conditions. How deadly is the Comorbidity Cocktail? An analysis of Covid-19 deaths revealed that hypertension was the most prevalent chronic condition in the decedents (65.4%), followed by obesity (38.5%), and diabetes (24.6%).</p>
                     </div>
-                    <div style="width: 31%;">
+                    <div style="display: inline; width: 31%;">
                         <img style="width: 100%" src="/img/Killer-Cocktail.png" />
                     </div>
                 </div>
                 <div class="content-block">
-                    <div style="width: 22%;">
+                    <div style="display: inline; width: 22%;">
                         <img style="width: 100%" src="/img/RPM-Devices-1.png" />
                     </div>
                     <div style="flex: 1; padding: 0 4%;">
@@ -59,7 +59,7 @@
                         <p style="font-size:17px">Smart Sized includes the 360 Healthcare Concierge that in addition to keep your Health Profile at your fingertips also provides AI -based support for Smoking Cessation and Behavioral Health. It is a turn-key package that does more than pay for itself. It helps you help your employees, your most valuable asset, become physically and financially healthier.</p>
                         <p style="font-size:17px"><strong>With 360 Smart Sized, after years of cost-shifting to your employees to try to mitigate the constant rise of healthcare costs, you can announce you are funding 100% of the cost for a new program that will save them on average $3,000 each.</strong></p>
                     </div>
-                    <div style="width: 22%;">
+                    <div style="display: inline; width: 22%;">
                         <img style="width: 100%" src="/img/360-Logo-WEB-3.png" />
                     </div>
                 </div>

@@ -32,11 +32,17 @@
                     <a href="/admin/subscribe/">
                         <img class="search-now" id="search_now_6" src="/img/Subscribe-Button.png" />
                     </a>
-                    <iframe loading="lazy" title="Why You Should Use Smarter Search.mp4" src="https://player.vimeo.com/video/592753989?dnt=1&amp;app_id=122963&amp;h=34761efa47" width="1200" height="675" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen=""></iframe>
+                    <div class="iframe-container">
+                        <iframe class="responsive-iframe" loading="lazy" title="Why You Should Use Smarter Search.mp4" src="https://player.vimeo.com/video/592753989?dnt=1&amp;app_id=122963&amp;h=34761efa47" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen=""></iframe>
+                    </div>
                     <p style="font-size: 18px;margin-top: 15px;">Outpatient Care Cost Containment is transactional, straightforward, simple for what we refer to as commodity care, routine procedures with predictable results.  Vertically integrated outpatient facilities for blood work, imaging, surgery, and urgent care charge more, than independently owned facilities, to provide the same level of care.  <strong>Smarter Search Users typically save 40% on the care they receive. Watch now to see you you should be using Smarter Search.</strong>  </p>
-                    <iframe loading="lazy" title="How to Use Smarter Search.mp4" src="https://player.vimeo.com/video/592851769?dnt=1&amp;app_id=122963&amp;h=cb5b3470cf" width="1200" height="675" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen=""></iframe>
+                    <div class="iframe-container">
+                        <iframe class="responsive-iframe" loading="lazy" title="How to Use Smarter Search.mp4" src="https://player.vimeo.com/video/592851769?dnt=1&amp;app_id=122963&amp;h=cb5b3470cf" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen=""></iframe>
+                    </div>
                     <p style="font-size: 18px;margin-top: 15px;"><strong>360 Smarter Search is Smart. </strong>When you open your phone it knows where you are.  <strong>Using Smarter Search is Intuitive</strong>, but Jarry is here to walk you through it. </p>
-                    <iframe loading="lazy" title="When Should I use the Emergency Room or Urgent Care?" src="https://player.vimeo.com/video/542711011?dnt=1&amp;app_id=122963&amp;h=8bddf622de" width="1200" height="675" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen=""></iframe>
+                    <div class="iframe-container">
+                        <iframe class="responsive-iframe" loading="lazy" title="When Should I use the Emergency Room or Urgent Care?" src="https://player.vimeo.com/video/542711011?dnt=1&amp;app_id=122963&amp;h=8bddf622de" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen=""></iframe>
+                    </div>
                     <p style="font-size: 18px;margin-top: 15px;">Knowing when to use the Emergency Room or Urgent Care impacts your wallet, <strong>but more importantly your health. </strong>  <br>This video walks you through the decision points you need to decide <strong>which is best for your health.</strong>  </p>
                     
                     <a href="/search/">

@@ -11,7 +11,7 @@
     <div class="form-group">
         <div class="row">
             @foreach($plans as $plan)
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="subscription-option">
                     <input type="radio" id="plan-{{$plan->product->name}}" name="plan" value='{{$plan->id}}' {{ $subscription && $plan->id == $subscription->stripe_price ? 'checked' : '' }}>
                     <label for="plan-{{$plan->product->name}}">
@@ -21,6 +21,17 @@
                 </div>
             </div>
             @endforeach
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-3">
+            <label>Ads</label>
+            <select class="form-control" name="ads">
+                <option>Marriage Counselor</option>
+                <option>Soccer Moms</option>
+                <option>Stunt Man</option>
+                <option>Tough Guy</option>
+            </select>
         </div>
     </div>
     <div class="form-group">

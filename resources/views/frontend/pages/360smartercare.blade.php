@@ -9,9 +9,11 @@
             <h1 style="margin-top: 30px">360 Smarter Care</h1>
             <hr/>
             <div class="content mb-4">
-                <iframe loading="lazy" title="360 Video Executive Summary" src="https://player.vimeo.com/video/562223440?dnt=1&amp;app_id=122963" width="1200" height="675" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen=""></iframe>
+                <div class="iframe-container">
+                    <iframe class="responsive-iframe" loading="lazy" title="360 Video Executive Summary" src="https://player.vimeo.com/video/562223440?dnt=1&amp;app_id=122963" width="1200" height="675" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen=""></iframe>
+                </div>
                 <div class="content-block">
-                    <div style="width: 24%;">
+                    <div style="display: inline; width: 24%;">
                         <img style="width: 100%" src="/img/Customer-Lost.png" />
                     </div>
                     <div style="flex: 1; padding: 0 4%;">
@@ -24,7 +26,7 @@
                         <h2 class="text-center"><em>The 360 Solution</em></h2>
                         <p style="font-size:17px">360's delivers delivers disproportionate results by addressing four areas of your self-funded plan that drive the majority of controllable healthcare cost expenses. Using state-of-the-art proprietary AI technology 360 presents our clients with the ultimate in mass scalability while concurrently delivering individualized personalized communication exactly the way their employees, members, each care consumer desire. AI-driven communication delivers exceptionally high levels of participation and integration.<br>Artificial Intelligence Intelligently Applied delivers guaranteed savings on care cost with improved outcomes, with a healthier insured population. It starts with your request to speak with a 360 Smarter Care Advisor.</p>
                     </div>
-                    <div style="width: 24%;">
+                    <div style="display: inline; width: 24%;">
                         <img style="width: 100%" src="/img/360-Smarter-Care-WEB.png" />
                     </div>
                 </div>
@@ -91,10 +93,10 @@
                     </div>
                 </div>
                 <div class="content-block">
-                    <div style="width: 50%; padding: 0 4%;">
+                    <div style="display: inline; width: 50%; padding: 0 4%;">
                         <video style="width: 100%" controls="" src="/video/Jay-Delsing-Talks-360.mp4"></video>
                     </div>
-                    <div style="width: 50%; padding: 0 4%;">
+                    <div style="display: inline; width: 50%; padding: 0 4%;">
                         <p>Hear what Jay Delsing, former PGA Touring Pro and <a href="https://www.podcastone.com/golf-with-jay-delsing" data-type="URL" data-id="https://www.podcastone.com/golf-with-jay-delsing" target="_blank" rel="noreferrer noopener">Host of  the Golf with Jay Desling Podcast</a>, has to say about 360 Smarter Care.</p>
                     </div>
                 </div>

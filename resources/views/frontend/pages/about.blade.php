@@ -17,14 +17,14 @@
                         <p>An informed healthcare consumer should know what the cost of care will be before the service is rendered. New transparency initiatives are a step forward, but when you are ill or injured are you really going to take the time to shop for the best value in Urgent Care or an ER?</p>
                         <p>360 Smarter Search is here to help you control your Out-of-Pocket expenses for routine outpatient care. This easy-to-use tool will guide you to the nearest high-value care facility within your provider network for Bloodwork, Imaging, Outpatient Surgery, and Urgent Care.</p>
                     </div>
-                    <div style="width: 48%;">
+                    <div style="display: inline; width: 48%;">
                         <a href="https://www.uchicagomedicine.org/forefront/health-and-wellness-articles/when-to-go-to-the-emergency-room-vs-an-urgent-care-clinic" target="_blank" rel="noopener">
                             <img style="width: 100%" src="/img/Cost-of-Urgent-Care-Same-as-ER.png" />
                         </a>
                     </div>
                 </div>
                 <div class="content-block">
-                    <div style="width: 22%;">
+                    <div style="display: inline; width: 22%;">
                         <a href="/search/">
                             <img style="width: 100%" src="/img/Smarter-Search-Now-Note-20-570x1024.png" />
                         </a>
