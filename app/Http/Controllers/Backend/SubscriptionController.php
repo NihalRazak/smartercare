@@ -33,7 +33,7 @@ class SubscriptionController
     public function showSubscription() {
         $plans = $this->retrievePlans();
         $user = Auth::user();
-        
+
         return view('backend.auth.subscribe.subscribe', [
             'user'=>$user,
             'intent' => $user->createSetupIntent(),
@@ -45,7 +45,6 @@ class SubscriptionController
     {
         $user = Auth::user();
         $paymentMethod = $request->post('payment_method');
-                    
         $user->createOrGetStripeCustomer();
         $user->addPaymentMethod($paymentMethod);
         $plan = $request->input('plan');
@@ -57,6 +56,6 @@ class SubscriptionController
             return back()->withErrors(['message' => 'Error creating subscription. ' . $e->getMessage()]);
         }
         
-        return redirect('backend.dashboard');
+        return redirect()->route('admin.additionalinfo.index');
     }
 }

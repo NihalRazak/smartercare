@@ -10,16 +10,18 @@
 <form action="/admin/subscribe" method="POST" id="subscribe-form">
     <div class="form-group">
         <div class="row">
-            @foreach($plans as $plan)
-            <div class="col-md-3">
-                <div class="subscription-option">
-                    <input type="radio" id="plan-{{$plan->product->name}}" name="plan" value='{{$plan->id}}' {{ $subscription && $plan->id == $subscription->stripe_price ? 'checked' : '' }}>
-                    <label for="plan-{{$plan->product->name}}">
-                        <span class="plan-price">{{$plan->currency}}{{$plan->amount/100}}<small> /{{$plan->interval}}</small></span>
-                        <span class="plan-name">{{$plan->product->name}}</span>
-                    </label>
-                </div>
-            </div>
+            @foreach ($plans as $plan)
+                @if ($plan->active)
+                    <div class="col-md-4">
+                        <div class="subscription-option">
+                            <input type="radio" id="plan-{{$plan->product->name}}" name="plan" value='{{$plan->id}}' {{ $subscription && $plan->id == $subscription->stripe_price ? 'checked' : '' }}>
+                            <label for="plan-{{$plan->product->name}}">
+                                <span class="plan-price">${{$plan->amount/100}}<small> /{{$plan->interval}}</small></span>
+                                <span class="plan-name">{{$plan->product->name}}</span>
+                            </label>
+                        </div>
+                    </div>
+                @endif
             @endforeach
         </div>
     </div>
@@ -34,6 +36,11 @@
             </select>
         </div>
     </div>
+    
+    <div class="form-group">
+        <label>Are you a dependent</label>
+        <input type="checkbox" name="isDependent">
+    </div>
     <div class="form-group">
         <label for="card-holder-name">Card Holder Name</label>
         <input class="form-control" id="card-holder-name" type="text">
@@ -47,13 +54,6 @@
         <div id="card-errors" role="alert"></div>
     </div>
     <div class="stripe-errors"></div>
-    @if (count($errors) > 0)
-    <div class="alert alert-danger">
-        @foreach ($errors->all() as $error)
-        {{ $error }}<br>
-        @endforeach
-    </div>
-    @endif
     <div class="form-group text-center">
         <button type="button" id="card-button" data-secret="{{ $intent->client_secret }}" class="btn btn-lg btn-success btn-block">SUBMIT</button>
     </div>
