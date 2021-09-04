@@ -48,8 +48,11 @@ class SubscriptionController
         $user->createOrGetStripeCustomer();
         $user->addPaymentMethod($paymentMethod);
         $plan = $request->input('plan');
+        $quantity = $request->input('quantity');
         try {
-            $user->newSubscription('default', $plan)->create($paymentMethod, [
+            $user->newSubscription('default', $plan)
+                ->quantity($quantity)
+                ->create($paymentMethod, [
                 'email' => $user->email
             ]);
         } catch (\Exception $e) {

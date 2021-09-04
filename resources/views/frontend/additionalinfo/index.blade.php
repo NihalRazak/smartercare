@@ -12,6 +12,18 @@
         <x-slot name="body">
             <div>
                 <div class="form-group row">
+                    <label for="ads_tracking" class="col-md-2 col-form-label">@lang('Ads Tracking')</label>
+
+                    <div class="col-md-4">
+                        <select class="form-control" name="ads">
+                            <option>Marriage Counselor</option>
+                            <option>Soccer Moms</option>
+                            <option>Stunt Man</option>
+                            <option>Tough Guy</option>
+                        </select>
+                    </div>
+                </div><!--form-group-->
+                <div class="form-group row">
                     <label for="name" class="col-md-2 col-form-label">@lang('Age')</label>
 
                     <div class="col-md-4">
@@ -23,10 +35,10 @@
 
                     <div class="col-md-4">
                         <select class="form-control" name="sex">
-                            <option value="female">Female</option>
-                            <option value="ftm">Female in Transition to Male</option>
-                            <option value="male">Male</option>
-                            <option value="mtf">Male in Transition to Female</option>
+                            <option value="Female">Female</option>
+                            <option value="Female in Transition to Male">Female in Transition to Male</option>
+                            <option value="Male">Male</option>
+                            <option value="Male in Transition to Female">Male in Transition to Female</option>
                         </select>
                     </div>
                 </div><!--form-group-->

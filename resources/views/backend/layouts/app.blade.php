@@ -37,9 +37,6 @@
         @include('backend.includes.footer')
     </div><!--c-wrapper-->
 
-    <script>
-        var stripe_api = '{{ env('STRIPE_KEY') }}';
-    </script>
     @stack('before-scripts')
     <script src="{{ mix('js/manifest.js') }}"></script>
     <script src="{{ mix('js/vendor.js') }}"></script>
