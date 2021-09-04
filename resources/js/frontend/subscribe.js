@@ -59,3 +59,13 @@ function paymentMethodHandler(payment_method) {
     form.appendChild(hiddenInput);
     form.submit();
 }
+
+$(document).ready(function () {
+    $("input[name='isDependent']").on('change', function () {
+        if ($(this).prop('checked')) {
+            $(".dependent_details").show();
+        } else {
+            $(".dependent_details").hide();
+        }
+    });
+});

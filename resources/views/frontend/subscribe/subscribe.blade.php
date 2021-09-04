@@ -41,6 +41,12 @@
         <label>Are you a dependent</label>
         <input type="checkbox" name="isDependent">
     </div>
+    
+    <div class="form-group dependent_details" style="display: none;">
+        <label>Dependent Details</label>
+        <input type="text" class="form-control" name="dependent_details">
+    </div>
+    
     <div class="form-group">
         <label for="card-holder-name">Card Holder Name</label>
         <input class="form-control" id="card-holder-name" type="text">
