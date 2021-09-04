@@ -7,6 +7,8 @@ use App\Http\Controllers\Frontend\ServicesController;
 use App\Http\Controllers\Frontend\YourSmarterChoiceController;
 use App\Http\Controllers\Frontend\SmartSizedController;
 use App\Http\Controllers\Frontend\AboutController;
+use App\Http\Controllers\Frontend\SubscriptionController;
+use App\Http\Controllers\Frontend\AdditionalInfoController;
 use Tabuna\Breadcrumbs\Trail;
 
 /*
@@ -42,3 +44,15 @@ Route::get('/smart-sized', [SmartSizedController::class, 'index'])
 
 Route::get('/about', [AboutController::class, 'index'])
     ->name('pages.about');
+
+Route::group(['prefix' => 'subscribe', 
+                'as' => 'subscribe.', 
+                'middleware' => 'auth'], function () {
+    Route::get('/', [SubscriptionController::class, 'showSubscription'])->name('subscribe');
+    Route::post('/', [SubscriptionController::class, 'processSubscription'])->name('process_subscribe');
+});
+
+Route::group(['prefix' => 'additionalinfo', 'as' => 'additionalinfo.'], function () {
+    Route::get('/', [AdditionalInfoController::class, 'index'])->name('index');
+    Route::post('store', [AdditionalInfoController::class, 'store'])->name('store');
+});

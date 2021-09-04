@@ -20,10 +20,10 @@ mix.setPublicPath('public')
     .js('resources/js/frontend/app.js', 'js/frontend.js')
     .js('resources/js/frontend/search.js', 'js/search.js')
     .js('resources/js/frontend/home.js', 'js/home.js')
+    .js('resources/js/frontend/subscribe.js', 'js/subscribe.js')
     .js('resources/js/backend/app.js', 'js/backend.js')
     .js('resources/js/backend/company.js', 'js/company.js')
     .js('resources/js/backend/dashboard.js', 'js/dashboard.js')
-    .js('resources/js/backend/subscribe.js', 'js/subscribe.js')
     .extract([
         'alpinejs',
         'jquery',

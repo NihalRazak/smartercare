@@ -7,7 +7,7 @@
 @php
     $subscription = $logged_in_user->subscriptions()->active()->first();
 @endphp
-<form action="/admin/subscribe" method="POST" id="subscribe-form">
+<form action="/subscribe" method="POST" id="subscribe-form">
     <div class="form-group">
         <div class="row">
             @foreach ($plans as $plan)

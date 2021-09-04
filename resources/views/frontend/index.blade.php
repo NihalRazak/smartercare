@@ -29,7 +29,7 @@
                     <a href="/search/">
                         <img class="search-now" id="search_now_5" src="/img/Search-Button.png" />
                     </a>
-                    <a href="/admin/subscribe/">
+                    <a href="/subscribe/">
                         <img class="search-now" id="search_now_6" src="/img/Subscribe-Button.png" />
                     </a>
                     <div class="iframe-container">

@@ -17,15 +17,6 @@
                 icon="c-sidebar-nav-icon cil-speedometer"
                 :text="__('Dashboard')" />
         </li>
-
-        <li class="c-sidebar-nav-item">
-            <x-utils.link
-                class="c-sidebar-nav-link"
-                :href="route('admin.subscribe')"
-                :active="activeClass(Route::is('admin.subscribe'), 'c-active')"
-                icon="c-sidebar-nav-icon cil-speedometer"
-                :text="__('Subscription')" />
-        </li>
         @if (
             $logged_in_user->hasAllAccess() ||
             (

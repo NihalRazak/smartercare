@@ -3,7 +3,7 @@
 @section('title', __('Company Management'))
 
 @section('content')
-<x-forms.post :action="route('admin.additionalinfo.store')">
+<x-forms.post :action="route('frontend.additionalinfo.store')">
     <x-backend.card>
         <x-slot name="header">
             @lang('Additional Information')

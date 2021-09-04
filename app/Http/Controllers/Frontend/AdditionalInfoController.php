@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers\Frontend;
 use Illuminate\Http\Request;
 use App\Domains\Auth\Models\User;
 
@@ -14,7 +14,7 @@ class AdditionalInfoController
      */
     public function index()
     {
-        return view('backend.auth.additionalinfo.index');
+        return view('frontend.additionalinfo.index');
     }
     
     /**
@@ -32,6 +32,6 @@ class AdditionalInfoController
         $user->age = $age;
         $user->sex = $sex;
         $user->save();
-        return redirect()->route('admin.dashboard');
+        return redirect()->route('frontend.pages.search');
     }
 }

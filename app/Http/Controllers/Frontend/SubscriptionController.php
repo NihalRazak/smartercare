@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers\Frontend;
 
 require_once('../vendor/autoload.php');
 
@@ -34,7 +34,7 @@ class SubscriptionController
         $plans = $this->retrievePlans();
         $user = Auth::user();
 
-        return view('backend.auth.subscribe.subscribe', [
+        return view('frontend.subscribe.subscribe', [
             'user'=>$user,
             'intent' => $user->createSetupIntent(),
             'plans' => $plans
@@ -56,6 +56,6 @@ class SubscriptionController
             return back()->withErrors(['message' => 'Error creating subscription. ' . $e->getMessage()]);
         }
         
-        return redirect()->route('admin.additionalinfo.index');
+        return redirect()->route('frontend.additionalinfo.index');
     }
 }
