@@ -1,3 +1,5 @@
+import Inputmask from "inputmask";
+
 var stripe = Stripe(stripe_api);
 var dependents = [];
 
@@ -67,6 +69,10 @@ function paymentMethodHandler(payment_method) {
 }
 
 $(document).ready(function () {
+    var selector = document.getElementById("phone");
+    var im = new Inputmask("999-999-9999");
+    im.mask(selector);
+
     $("#add_dependent").on("click", function (e) {
         e.preventDefault();
         $(".new-dependent").slideDown();
@@ -78,13 +84,14 @@ $(document).ready(function () {
         });
     });
     $("#btn-save").on("click", function () {
-        var name = $(".new-dependent #name").val();
+        var first_name = $(".new-dependent #first_name").val();
+        var middle_name = $(".new-dependent #middle_name").val();
+        var last_name = $(".new-dependent #last_name").val();
         var age = $(".new-dependent #age").val();
         var sex = $(".new-dependent #sex").val();
-        var address = $(".new-dependent #address").val();
         var email = $(".new-dependent #email").val();
         var phone_number = $(".new-dependent #phone").val();
-        if (name == "" || age == "" || address == "" || email == "" || phone_number == "") {
+        if ((first_name == "" && middle_name == "" && last_name == "") || age == "" || email == "" || phone_number == "") {
             $(".notify-msg").fadeIn();
             setTimeout(() => {
                 $(".notify-msg").fadeOut();
@@ -92,16 +99,15 @@ $(document).ready(function () {
             return ;
         }
         dependents.push({
-            name, age, sex, address, email, phone_number
+            first_name, middle_name, last_name, age, sex, email, phone_number
         });
         var html = `
             <tr>
-                <td>${name}</th>
-                <td>${age}</th>
-                <td>${sex}</th>
-                <td>${address}</th>
-                <td>${email}</th>
-                <td>${phone_number}</th>
+                <td>${first_name} ${middle_name} ${last_name}</td>
+                <td>${email}</td>
+                <td>${phone_number}</td>
+                <td>${age}</td>
+                <td>${sex}</td>
             </tr>
         `;
         $(".plan-price-number").each((i, obj) => {

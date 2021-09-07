@@ -1,7 +1,15 @@
+import Inputmask from "inputmask";
+
 $(document).ready(function () {
+    var selector = document.getElementById("phone");
+    if (selector) {
+        var im = new Inputmask("999-999-9999");
+        im.mask(selector);
+    }
+
     var location = window.location.href;
     location = location.split("/").reverse()[0];
-    
+
     if (location == "") {
         $(".navbar-nav li").removeClass("active");
         $(".navbar-nav li").eq(0).addClass("active");

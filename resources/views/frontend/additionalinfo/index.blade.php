@@ -34,7 +34,8 @@
                     <label for="sex" class="col-md-2 col-form-label">@lang('Sex')</label>
 
                     <div class="col-md-4">
-                        <select class="form-control" name="sex">
+                        <select class="form-control" name="sex" required>
+                            <option value="">Please select sex</option>
                             <option value="Female">Female</option>
                             <option value="Female in Transition to Male">Female in Transition to Male</option>
                             <option value="Male">Male</option>
