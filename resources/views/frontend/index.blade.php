@@ -26,8 +26,8 @@
                     <img class="block-image" id="logo" src="/img/Smarter Search Words.png" />
                 </div>
                 <div class="content">
-                    <a href="/search/">
-                        <img class="search-now" id="search_now_5" src="/img/Search-Button.png" />
+                    <a href="/login/">
+                        <img class="search-now" id="search_now_5" src="/img/Login Button.png" />
                     </a>
                     <a href="/subscribe/">
                         <img class="search-now" id="search_now_6" src="/img/Subscribe-Button.png" />
