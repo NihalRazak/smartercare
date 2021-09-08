@@ -60,9 +60,12 @@
                     </div>
                     <p style="font-size: 18px;margin-top: 15px;">Knowing when to use the Emergency Room or Urgent Care impacts your wallet, <strong>but more importantly your health. </strong>  <br>This video walks you through the decision points you need to decide <strong>which is best for your health.</strong>  </p>
                     
-                    <a href="/login/">
-                        <img class="search-now" id="search_now_5" src="/img/Join the Movement.png" />
-                    </a>
+                    <div class="mb-4">
+                        <a href="/login/">
+                            <img class="search-now" id="search_now_5" src="/img/Join the Movement.png" />
+                        </a>
+                    </div>
+                    
                     <a href="/search/">
                         <img class="search-now" id="search_now_3" src="/img/Smarter-Search-Now-Note-20-570x1024.png" />
                     </a>
