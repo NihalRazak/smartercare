@@ -44,7 +44,7 @@
                     </div>
                     <p style="font-size: 18px;margin-top: 15px;">Outpatient Care Cost Containment is transactional, straightforward, simple for what we refer to as commodity care, routine procedures with predictable results.  Vertically integrated outpatient facilities for blood work, imaging, surgery, and urgent care charge more, than independently owned facilities, to provide the same level of care.  <strong>Smarter Search Users typically save 40% on the care they receive. Watch now to see you you should be using Smarter Search.</strong>  </p>
                     
-                    <a href="/login/">
+                    <a href="#">
                         <img class="search-now" id="search_now_5" src="/img/Save Now.png" />
                     </a>
                     <div class="iframe-container mt-4">
@@ -52,7 +52,7 @@
                     </div>
                     <p style="font-size: 18px;margin-top: 15px;"><strong>360 Smarter Search is Smart. </strong>When you open your phone it knows where you are.  <strong>Using Smarter Search is Intuitive</strong>, but Jarry is here to walk you through it. </p>
                     
-                    <a href="/login/">
+                    <a href="#">
                         <img class="search-now" id="search_now_5" src="/img/Save Now.png" />
                     </a>
                     <div class="iframe-container mt-4">
@@ -61,11 +61,11 @@
                     <p style="font-size: 18px;margin-top: 15px;">Knowing when to use the Emergency Room or Urgent Care impacts your wallet, <strong>but more importantly your health. </strong>  <br>This video walks you through the decision points you need to decide <strong>which is best for your health.</strong>  </p>
                     
                     <div class="mb-4">
-                        <a href="/login/">
+                        <a href="#">
                             <img class="search-now" id="search_now_5" src="/img/Join the Movement.png" />
                         </a>
                     </div>
-                    
+
                     <a href="/search/">
                         <img class="search-now" id="search_now_3" src="/img/Smarter-Search-Now-Note-20-570x1024.png" />
                     </a>
