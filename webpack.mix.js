@@ -24,6 +24,7 @@ mix.setPublicPath('public')
     .js('resources/js/backend/app.js', 'js/backend.js')
     .js('resources/js/backend/company.js', 'js/company.js')
     .js('resources/js/backend/dashboard.js', 'js/dashboard.js')
+    .js('resources/js/backend/user.js', 'js/user.js')
     .extract([
         'alpinejs',
         'jquery',

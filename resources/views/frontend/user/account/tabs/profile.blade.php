@@ -12,7 +12,7 @@
 
         <tr>
             <th>@lang('Name')</th>
-            <td>{{ $logged_in_user->name }}</td>
+            <td>{{ $logged_in_user->first_name }} {{ $logged_in_user->middle_name }} {{ $logged_in_user->last_name }}</td>
         </tr>
 
         <tr>

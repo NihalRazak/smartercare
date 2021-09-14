@@ -26,13 +26,13 @@
 
                 <tr>
                     <th>@lang('Name')</th>
-                    <td>{{ $user->name }}</td>
+                    <td>{{ $user->first_name }} {{ $user->middle_name }} {{ $user->last_name }}</td>
                 </tr>
-
+<!-- 
                 <tr>
                     <th>@lang('E-mail Address')</th>
                     <td>{{ $user->email }}</td>
-                </tr>
+                </tr> -->
 
                 <tr>
                     <th>@lang('Status')</th>

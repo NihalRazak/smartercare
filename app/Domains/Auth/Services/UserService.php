@@ -9,6 +9,7 @@ use App\Domains\Auth\Events\User\UserRestored;
 use App\Domains\Auth\Events\User\UserStatusChanged;
 use App\Domains\Auth\Events\User\UserUpdated;
 use App\Domains\Auth\Models\User;
+use App\Domains\Auth\Models\Address;
 use App\Exceptions\GeneralException;
 use App\Services\BaseService;
 use Exception;
@@ -56,7 +57,26 @@ class UserService extends BaseService
         DB::beginTransaction();
 
         try {
-            $user = $this->createUser($data);
+            $user = $this->createUser([
+                'first_name' => $data['first_name'],
+                'middle_name' => $data['middle_name'],
+                'last_name' => $data['last_name'],
+                'email' => $data['email'],
+                'phone' => $data['phone'],
+                'company_id' => $data['company_id'],
+                'password' => $data['password'],
+                'email_verified_at' => now(),
+                'active' => '1',
+            ]);
+            $address = $this->createAddress([
+                'address_number' => $data['address_number'],
+                'address_street_name' => $data['address_street_name'],
+                'apt_or_unit' => $data['apt_or_unit'],
+                'zip_code' => $data['zip_code'],
+                'address_city' => $data['address_city'],
+                'address_state' => $data['address_state'],
+                'user_id' => $user->id
+            ]);
         } catch (Exception $e) {
             DB::rollBack();
 
@@ -84,7 +104,9 @@ class UserService extends BaseService
 
             try {
                 $user = $this->createUser([
-                    'name' => $info->name,
+                    'first_name' => $info->first_name,
+                    'middle_name' => $info->middle_name,
+                    'last_name' => $info->last_name,
                     'email' => $info->email,
                     'provider' => $provider,
                     'provider_id' => $info->id,
@@ -116,14 +138,25 @@ class UserService extends BaseService
         try {
             $user = $this->createUser([
                 'type' => $data['type'],
-                'name' => $data['name'],
+                'first_name' => $data['first_name'],
+                'middle_name' => $data['middle_name'],
+                'last_name' => $data['last_name'],
                 'email' => $data['email'],
-                'address' => $data['address'],
                 'phone' => $data['phone'],
                 'company_id' => $data['company_id'],
                 'password' => $data['password'],
-                'email_verified_at' => isset($data['email_verified']) && $data['email_verified'] === '1' ? now() : null,
+                'email_verified_at' => now(),
                 'active' => isset($data['active']) && $data['active'] === '1',
+            ]);
+
+            $address = $this->createAddress([
+                'address_number' => $data['address_number'],
+                'address_street_name' => $data['address_street_name'],
+                'apt_or_unit' => $data['apt_or_unit'],
+                'zip_code' => $data['zip_code'],
+                'address_city' => $data['address_city'],
+                'address_state' => $data['address_state'],
+                'user_id' => $user->id
             ]);
 
             $user->syncRoles($data['roles'] ?? []);
@@ -142,9 +175,9 @@ class UserService extends BaseService
         DB::commit();
 
         // They didn't want to auto verify the email, but do they want to send the confirmation email to do so?
-        if (! isset($data['email_verified']) && isset($data['send_confirmation_email']) && $data['send_confirmation_email'] === '1') {
-            $user->sendEmailVerificationNotification();
-        }
+        // if (! isset($data['email_verified']) && isset($data['send_confirmation_email']) && $data['send_confirmation_email'] === '1') {
+        //     $user->sendEmailVerificationNotification();
+        // }
 
         return $user;
     }
@@ -163,9 +196,22 @@ class UserService extends BaseService
         try {
             $user->update([
                 'type' => $user->isMasterAdmin() ? $this->model::TYPE_ADMIN : $data['type'] ?? $user->type,
-                'name' => $data['name'],
+                'first_name' => $data['first_name'],
+                'middle_name' => $data['middle_name'],
+                'last_name' => $data['last_name'],
+                'phone' => $data['phone'],
                 'email' => $data['email'],
                 'company_id' => $data['company_id'],
+            ]);
+
+            $address = Address::where('user_id', $user->id)->first();
+            $address->update([
+                'number' => $data['address_number'],
+                'street_name' => $data['address_street_name'],
+                'apt_or_unit' => $data['apt_or_unit'],
+                'zip_code' => $data['zip_code'],
+                'city' => $data['address_city'],
+                'state' => $data['address_state']
             ]);
 
             if (! $user->isMasterAdmin()) {
@@ -328,9 +374,10 @@ class UserService extends BaseService
     {
         return $this->model::create([
             'type' => $data['type'] ?? $this->model::TYPE_USER,
-            'name' => $data['name'] ?? null,
+            'first_name' => $data['first_name'] ?? null,
+            'middle_name' => $data['middle_name'] ?? null,
+            'last_name' => $data['last_name'] ?? null,
             'email' => $data['email'] ?? null,
-            'address' => $data['address'] ?? null,
             'phone' => $data['phone'] ?? null,
             'company_id' => $data['company_id'] ?? null,
             'password' => $data['password'] ?? null,
@@ -338,6 +385,24 @@ class UserService extends BaseService
             'provider_id' => $data['provider_id'] ?? null,
             'email_verified_at' => $data['email_verified_at'] ?? null,
             'active' => $data['active'] ?? true,
+        ]);
+    }
+    
+    /**
+     * @param  array  $data
+     *
+     * @return Address
+     */
+    protected function createAddress(array $data = []): Address
+    {
+        return Address::create([
+            'number' => $data['address_number'] ?? null,
+            'street_name' => $data['address_street_name'] ?? null,
+            'apt_or_unit' => $data['apt_or_unit'] ?? null,
+            'zip_code' => $data['zip_code'] ?? null,
+            'city' => $data['address_city'] ?? null,
+            'state' => $data['address_state'] ?? null,
+            'user_id' => $data['user_id']
         ]);
     }
 }

@@ -4,6 +4,7 @@ namespace App\Domains\Auth\Models\Traits\Relationship;
 
 use App\Domains\Auth\Models\PasswordHistory;
 use App\Domains\Auth\Models\Company;
+use App\Domains\Auth\Models\Address;
 
 /**
  * Class UserRelationship.
@@ -24,5 +25,10 @@ trait UserRelationship
     public function company()
     {
         return $this->belongsTo(Company::class);
+    }
+    
+    public function address()
+    {
+        return $this->hasOne(Address::class);
     }
 }

@@ -14,20 +14,131 @@
                     <x-slot name="body">
                         <x-forms.post :action="route('frontend.auth.register')">
                             <div class="form-group row">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">@lang('Name')</label>
+                                <label for="first_name" class="col-md-4 col-form-label text-md-right">@lang('First Name')</label>
 
                                 <div class="col-md-6">
-                                    <input type="text" name="name" id="name" class="form-control" value="{{ old('name') }}" placeholder="{{ __('Name') }}" maxlength="100" required autofocus autocomplete="name" />
+                                    <input type="text" name="first_name" id="first_name" class="form-control" value="{{ old('first_name') }}" placeholder="{{ __('First Name') }}" maxlength="100" required autofocus autocomplete="first_name" />
                                 </div>
                             </div><!--form-group-->
                             
                             <div class="form-group row">
-                                <label for="address" class="col-md-4 col-form-label text-md-right">@lang('Address')</label>
+                                <label for="middle_name" class="col-md-4 col-form-label text-md-right">@lang('Middle Name')</label>
 
                                 <div class="col-md-6">
-                                    <input type="text" name="address" id="address" class="form-control" value="{{ old('address') }}" placeholder="{{ __('Address') }}" maxlength="255" required autocomplete="address" />
+                                    <input type="text" name="middle_name" id="middle_name" class="form-control" value="{{ old('middle_name') }}" placeholder="{{ __('Middle Name') }}" maxlength="100" autocomplete="middle_name" />
                                 </div>
                             </div><!--form-group-->
+
+                            <div class="form-group row">
+                                <label for="last_name" class="col-md-4 col-form-label text-md-right">@lang('Last Name')</label>
+
+                                <div class="col-md-6">
+                                    <input type="text" name="last_name" id="last_name" class="form-control" value="{{ old('last_name') }}" placeholder="{{ __('Last Name') }}" maxlength="100" required autocomplete="last_name" />
+                                </div>
+                            </div><!--form-group-->
+
+                            <hr/>
+                            <div class="form-group">
+                                <div class="form-group row">
+                                    <label for="address_number" class="col-md-4 col-form-label text-md-right">Number</label>
+                                    
+                                    <div class="col-md-6">
+                                        <input type="text" name="address_number" id="address_number" class="form-control" placeholder="{{ __('Street Number') }}" maxlength="255" required />
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="address_street_name" class="col-md-4 col-form-label text-md-right">Street Name</label>
+                                    
+                                    <div class="col-md-6">
+                                        <input type="text" name="address_street_name" id="address_street_name" class="form-control" placeholder="{{ __('Street Name') }}" maxlength="255" required />
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="apt_or_unit" class="col-md-4 col-form-label text-md-right">Apt or Unit (Optional)</label>
+                                    
+                                    <div class="col-md-6">
+                                        <input type="text" name="apt_or_unit" id="apt_or_unit" class="form-control" placeholder="{{ __('Apt or Unit') }}" maxlength="255" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="zip_code" class="col-md-4 col-form-label text-md-right">Zip Code</label>
+                                    
+                                    <div class="col-md-6">
+                                        <input type="text" name="zip_code" id="zip_code" class="form-control" placeholder="{{ __('Zip Code') }}" maxlength="255" />
+                                    </div>
+                                </div>
+                            
+                                <div class="form-group row">
+                                    <label for="address_city" class="col-md-4 col-form-label text-md-right">City</label>
+                                    
+                                    <div class="col-md-6">
+                                        <input type="text" name="address_city" id="address_city" class="form-control" placeholder="{{ __('City') }}" maxlength="255" required />
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="address_state" class="col-md-4 col-form-label text-md-right">State</label>
+                                    
+                                    <div class="col-md-6">
+                                        <select class="form-control" id="address_state" name="address_state">
+                                            <option value="AK">Alaska</option>
+                                            <option value="HI">Hawaii</option>
+                                            <option value="CA">California</option>
+                                            <option value="NV">Nevada</option>
+                                            <option value="OR">Oregon</option>
+                                            <option value="WA">Washington</option>
+                                            <option value="AZ">Arizona</option>
+                                            <option value="CO">Colorado</option>
+                                            <option value="ID">Idaho</option>
+                                            <option value="MT">Montana</option>
+                                            <option value="NE">Nebraska</option>
+                                            <option value="NM">New Mexico</option>
+                                            <option value="ND">North Dakota</option>
+                                            <option value="UT">Utah</option>
+                                            <option value="WY">Wyoming</option>
+                                            <option value="AL">Alabama</option>
+                                            <option value="AR">Arkansas</option>
+                                            <option value="IL">Illinois</option>
+                                            <option value="IA">Iowa</option>
+                                            <option value="KS">Kansas</option>
+                                            <option value="KY">Kentucky</option>
+                                            <option value="LA">Louisiana</option>
+                                            <option value="MN">Minnesota</option>
+                                            <option value="MS">Mississippi</option>
+                                            <option value="MO">Missouri</option>
+                                            <option value="OK">Oklahoma</option>
+                                            <option value="SD">South Dakota</option>
+                                            <option value="TX">Texas</option>
+                                            <option value="TN">Tennessee</option>
+                                            <option value="WI">Wisconsin</option>
+                                            <option value="CT">Connecticut</option>
+                                            <option value="DE">Delaware</option>
+                                            <option value="FL">Florida</option>
+                                            <option value="GA">Georgia</option>
+                                            <option value="IN">Indiana</option>
+                                            <option value="ME">Maine</option>
+                                            <option value="MD">Maryland</option>
+                                            <option value="MA">Massachusetts</option>
+                                            <option value="MI">Michigan</option>
+                                            <option value="NH">New Hampshire</option>
+                                            <option value="NJ">New Jersey</option>
+                                            <option value="NY">New York</option>
+                                            <option value="NC">North Carolina</option>
+                                            <option value="OH">Ohio</option>
+                                            <option value="PA">Pennsylvania</option>
+                                            <option value="RI">Rhode Island</option>
+                                            <option value="SC">South Carolina</option>
+                                            <option value="VT">Vermont</option>
+                                            <option value="VA">Virginia</option>
+                                            <option value="WV">West Virginia</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr/>
 
                             <div class="form-group row">
                                 <label for="email" class="col-md-4 col-form-label text-md-right">@lang('E-mail Address')</label>

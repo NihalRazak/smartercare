@@ -32,10 +32,123 @@
                     @endif
 
                     <div class="form-group row">
-                        <label for="name" class="col-md-2 col-form-label">@lang('Name')</label>
+                        <label for="first_name" class="col-md-2 col-form-label">@lang('First Name')</label>
 
                         <div class="col-md-10">
-                            <input type="text" name="name" class="form-control" placeholder="{{ __('Name') }}" value="{{ old('name') ?? $user->name }}" maxlength="100" required />
+                            <input type="text" name="first_name" class="form-control" placeholder="{{ __('First Name') }}" value="{{ old('first_name') ?? $user->first_name }}" maxlength="100" required />
+                        </div>
+                    </div><!--form-group-->
+
+                    <div class="form-group row">
+                        <label for="middle_name" class="col-md-2 col-form-label">@lang('Middle Name')</label>
+
+                        <div class="col-md-10">
+                            <input type="text" name="middle_name" class="form-control" placeholder="{{ __('Middle Name') }}" value="{{ old('middle_name') ?? $user->middle_name }}" maxlength="100" />
+                        </div>
+                    </div><!--form-group-->
+
+                    <div class="form-group row">
+                        <label for="last_name" class="col-md-2 col-form-label">@lang('Last Name')</label>
+
+                        <div class="col-md-10">
+                            <input type="text" name="last_name" class="form-control" placeholder="{{ __('Last Name') }}" value="{{ old('last_name') ?? $user->last_name }}" maxlength="100" required />
+                        </div>
+                    </div><!--form-group-->
+
+                    <div class="form-group row">
+                        <label for="address" class="col-md-2 col-form-label">@lang('Address')</label>
+
+                        <div class="col-md-10 row">
+                            <div class="form-group col-md-4">
+                                <label for="address_number">Number</label>
+                                <input type="text" name="address_number" id="address_number" class="form-control" placeholder="{{ __('Street Number') }}" value="{{ $user->address->number }}" maxlength="255" required />
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label for="address_street_name">Street Name</label>
+                                <input type="text" name="address_street_name" id="address_street_name" class="form-control" placeholder="{{ __('Street Name') }}" value="{{ $user->address->street_name }}" maxlength="255" required />
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label for="apt_or_unit">Apt or Unit (Optional)</label>
+                                <input type="text" name="apt_or_unit" id="apt_or_unit" class="form-control" placeholder="{{ __('Apt or Unit') }}" value="{{ $user->address->apt_or_unit }}" maxlength="255" />
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label for="zip_code">Zip Code</label>
+                                <input type="text" name="zip_code" id="zip_code" class="form-control" placeholder="{{ __('Zip Code') }}" value="{{ $user->address->zip_code }}" maxlength="255" />
+                            </div>
+                        
+                            <div class="form-group col-md-4">
+                                <label for="address_city">City</label>
+                                <input type="text" name="address_city" id="address_city" class="form-control" placeholder="{{ __('City') }}" maxlength="255" value="{{ $user->address->city }}" required />
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label for="address_state">State</label>
+                                @php
+                                    $countries = [
+                                        ["value" => "AK", "name" => "Alaska"], 
+                                        ["value" => "HI", "name" => "Hawaii"], 
+                                        ["value" => "CA", "name" => "California"], 
+                                        ["value" => "NV", "name" => "Nevada"], 
+                                        ["value" => "OR", "name" => "Oregon"], 
+                                        ["value" => "WA", "name" => "Washington"], 
+                                        ["value" => "AZ", "name" => "Arizona"], 
+                                        ["value" => "CO", "name" => "Colorado"], 
+                                        ["value" => "ID", "name" => "Idaho"], 
+                                        ["value" => "MT", "name" => "Montana"], 
+                                        ["value" => "NE", "name" => "Nebraska"], 
+                                        ["value" => "NM", "name" => "New Mexico"], 
+                                        ["value" => "ND", "name" => "North Dakota"], 
+                                        ["value" => "UT", "name" => "Utah"], 
+                                        ["value" => "WY", "name" => "Wyoming"], 
+                                        ["value" => "AL", "name" => "Alabama"], 
+                                        ["value" => "AR", "name" => "Arkansas"], 
+                                        ["value" => "IL", "name" => "Illinois"], 
+                                        ["value" => "IA", "name" => "Iowa"], 
+                                        ["value" => "KS", "name" => "Kansas"], 
+                                        ["value" => "KY", "name" => "Kentucky"], 
+                                        ["value" => "LA", "name" => "Louisiana"], 
+                                        ["value" => "MN", "name" => "Minnesota"], 
+                                        ["value" => "MS", "name" => "Mississippi"], 
+                                        ["value" => "MO", "name" => "Missouri"], 
+                                        ["value" => "OK", "name" => "Oklahoma"], 
+                                        ["value" => "SD", "name" => "South Dakota"], 
+                                        ["value" => "TX", "name" => "Texas"], 
+                                        ["value" => "TN", "name" => "Tennessee"], 
+                                        ["value" => "WI", "name" => "Wisconsin"], 
+                                        ["value" => "CT", "name" => "Connecticut"], 
+                                        ["value" => "DE", "name" => "Delaware"], 
+                                        ["value" => "FL", "name" => "Florida"], 
+                                        ["value" => "GA", "name" => "Georgia"], 
+                                        ["value" => "IN", "name" => "Indiana"], 
+                                        ["value" => "ME", "name" => "Maine"], 
+                                        ["value" => "MD", "name" => "Maryland"], 
+                                        ["value" => "MA", "name" => "Massachusetts"], 
+                                        ["value" => "MI", "name" => "Michigan"], 
+                                        ["value" => "NH", "name" => "New Hampshire"], 
+                                        ["value" => "NJ", "name" => "New Jersey"], 
+                                        ["value" => "NY", "name" => "New York"], 
+                                        ["value" => "NC", "name" => "North Carolina"], 
+                                        ["value" => "OH", "name" => "Ohio"], 
+                                        ["value" => "PA", "name" => "Pennsylvania"], 
+                                        ["value" => "RI", "name" => "Rhode Island"], 
+                                        ["value" => "SC", "name" => "South Carolina"], 
+                                        ["value" => "VT", "name" => "Vermont"], 
+                                        ["value" => "VA", "name" => "Virginia"], 
+                                        ["value" => "WV", "name" => "West Virgini"]
+                                ];
+                                @endphp
+                                <select class="form-control" id="address_state" name="address_state">
+                                    @for($i = 0; $i < count($countries); $i++)
+                                        @php
+                                            $country = $countries[$i];
+                                        @endphp
+                                        <option value="{{ $country['value'] }}" {{ $country['value'] == $user->address->state ? "selected" : "" }}>{{ $country['name'] }}</option>
+                                    @endfor
+                                </select>
+                            </div>
                         </div>
                     </div><!--form-group-->
 
@@ -46,6 +159,15 @@
                             <input type="email" name="email" id="email" class="form-control" placeholder="{{ __('E-mail Address') }}" value="{{ old('email') ?? $user->email }}" maxlength="255" required />
                         </div>
                     </div><!--form-group-->
+                            
+                    <div class="form-group row">
+                        <label for="phone" class="col-md-2 col-form-label">@lang('Mobile Phone')</label>
+
+                        <div class="col-md-10">
+                            <input type="tel" name="phone" id="phone" class="form-control" placeholder="{{ __('Mobile Phone') }}" value="{{ old('phone') ?? $user->phone }}" maxlength="100" required />
+                        </div>
+                    </div><!--form-group-->
+        
 
                     <div class="form-group row">
                         <label for="company" class="col-md-2 col-form-label">@lang('Company')</label>
@@ -68,3 +190,7 @@
         </x-backend.card>
     </x-forms.patch>
 @endsection
+
+@push("after-scripts")
+<script src="{{ mix('js/user.js') }}"></script>
+@endpush

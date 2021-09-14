@@ -33,7 +33,16 @@ class UpdateUserRequest extends FormRequest
             'type' => [Rule::requiredIf(function () {
                 return ! $this->user->isMasterAdmin();
             }), Rule::in([User::TYPE_ADMIN, User::TYPE_COMPANY_ADMIN, User::TYPE_USER])],
-            'name' => ['required', 'max:100'],
+            'first_name' => ['required', 'max:100'],
+            'middle_name' => ['max:100'],
+            'last_name' => ['required', 'max:100'],
+            'address_number' => ['required'],
+            'address_street_name' => ['required'],
+            'apt_or_unit' => ['max:100'],
+            'zip_code' => ['max:100'],
+            'address_city' => ['required'],
+            'address_state' => ['required'],
+            'phone' => ['required'],
             'email' => ['required', 'max:255', 'email', Rule::unique('users')->ignore($this->user->id)],
             'company_id' => ['required'],
             // 'roles' => ['sometimes', 'array'],

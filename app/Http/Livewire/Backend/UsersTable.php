@@ -49,7 +49,8 @@ class UsersTable extends DataTableComponent
     {
         $query = User::with('roles', 'twoFactorAuth')
                     ->withCount('twoFactorAuth')
-                    ->with('company');
+                    ->with('company')
+                    ->with('address');
 
         if ($this->status === 'deleted') {
             $query = $query->onlyTrashed();
@@ -110,7 +111,7 @@ class UsersTable extends DataTableComponent
                 ->sortable(),
             Column::make(__('Mobile Phone'), 'phone')
                 ->sortable(),
-            Column::make(__('Address'), 'address')
+            Column::make(__('Address'), 'address.number')
                 ->sortable(),
             Column::make(__('Verified'), 'email_verified_at')
                 ->sortable(),

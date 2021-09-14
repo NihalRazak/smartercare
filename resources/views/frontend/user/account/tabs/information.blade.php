@@ -1,9 +1,25 @@
 <x-forms.patch :action="route('frontend.user.profile.update')">
     <div class="form-group row">
-        <label for="name" class="col-md-3 col-form-label text-md-right">@lang('Name')</label>
+        <label for="first_name" class="col-md-3 col-form-label text-md-right">@lang('First Name')</label>
 
         <div class="col-md-9">
-            <input type="text" name="name" class="form-control" placeholder="{{ __('Name') }}" value="{{ old('name') ?? $logged_in_user->name }}" required autofocus autocomplete="name" />
+            <input type="text" name="first_name" class="form-control" placeholder="{{ __('First Name') }}" value="{{ old('first_name') ?? $logged_in_user->first_name }}" required autofocus autocomplete="first_name" />
+        </div>
+    </div><!--form-group-->
+
+    <div class="form-group row">
+        <label for="middle_name" class="col-md-3 col-form-label text-md-right">@lang('Middle Name')</label>
+
+        <div class="col-md-9">
+            <input type="text" name="middle_name" class="form-control" placeholder="{{ __('Middle Name') }}" value="{{ old('middle_name') ?? $logged_in_user->middle_name }}" autocomplete="middle_name" />
+        </div>
+    </div><!--form-group-->
+
+    <div class="form-group row">
+        <label for="last_name" class="col-md-3 col-form-label text-md-right">@lang('Last Name')</label>
+
+        <div class="col-md-9">
+            <input type="text" name="last_name" class="form-control" placeholder="{{ __('Last Name') }}" value="{{ old('last_name') ?? $logged_in_user->last_name }}" required autocomplete="last_name" />
         </div>
     </div><!--form-group-->
 

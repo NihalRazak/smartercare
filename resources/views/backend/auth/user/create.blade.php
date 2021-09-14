@@ -30,10 +30,113 @@
                     </div><!--form-group-->
 
                     <div class="form-group row">
-                        <label for="name" class="col-md-2 col-form-label">@lang('Name')</label>
+                        <label for="first_name" class="col-md-2 col-form-label">@lang('First Name')</label>
 
                         <div class="col-md-10">
-                            <input type="text" name="name" class="form-control" placeholder="{{ __('Name') }}" value="{{ old('name') }}" maxlength="100" required />
+                            <input type="text" name="first_name" class="form-control" placeholder="{{ __('First Name') }}" value="{{ old('first_name') }}" maxlength="100" required />
+                        </div>
+                    </div><!--form-group-->
+
+                    <div class="form-group row">
+                        <label for="middle_name" class="col-md-2 col-form-label">@lang('Middle Name')</label>
+
+                        <div class="col-md-10">
+                            <input type="text" name="middle_name" class="form-control" placeholder="{{ __('Middle Name') }}" value="{{ old('middle_name') }}" maxlength="100" />
+                        </div>
+                    </div><!--form-group-->
+
+                    <div class="form-group row">
+                        <label for="last_name" class="col-md-2 col-form-label">@lang('Last Name')</label>
+
+                        <div class="col-md-10">
+                            <input type="text" name="last_name" class="form-control" placeholder="{{ __('Last Name') }}" value="{{ old('last_name') }}" maxlength="100" required />
+                        </div>
+                    </div><!--form-group-->
+
+                    <div class="form-group row">
+                        <label for="address" class="col-md-2 col-form-label">@lang('Address')</label>
+
+                        <div class="col-md-10 row">
+                            <div class="form-group col-md-4">
+                                <label for="address_number">Number</label>
+                                <input type="text" name="address_number" id="address_number" class="form-control" placeholder="{{ __('Street Number') }}" maxlength="255" required />
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label for="address_street_name">Street Name</label>
+                                <input type="text" name="address_street_name" id="address_street_name" class="form-control" placeholder="{{ __('Street Name') }}" maxlength="255" required />
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label for="apt_or_unit">Apt or Unit (Optional)</label>
+                                <input type="text" name="apt_or_unit" id="apt_or_unit" class="form-control" placeholder="{{ __('Apt or Unit') }}" maxlength="255" />
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label for="zip_code">Zip Code</label>
+                                <input type="text" name="zip_code" id="zip_code" class="form-control" placeholder="{{ __('Zip Code') }}" maxlength="255" />
+                            </div>
+                        
+                            <div class="form-group col-md-4">
+                                <label for="address_city">City</label>
+                                <input type="text" name="address_city" id="address_city" class="form-control" placeholder="{{ __('City') }}" maxlength="255" required />
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label for="address_state">State</label>
+                                <select class="form-control" id="address_state" name="address_state">
+                                    <option value="AK">Alaska</option>
+                                    <option value="HI">Hawaii</option>
+                                    <option value="CA">California</option>
+                                    <option value="NV">Nevada</option>
+                                    <option value="OR">Oregon</option>
+                                    <option value="WA">Washington</option>
+                                    <option value="AZ">Arizona</option>
+                                    <option value="CO">Colorado</option>
+                                    <option value="ID">Idaho</option>
+                                    <option value="MT">Montana</option>
+                                    <option value="NE">Nebraska</option>
+                                    <option value="NM">New Mexico</option>
+                                    <option value="ND">North Dakota</option>
+                                    <option value="UT">Utah</option>
+                                    <option value="WY">Wyoming</option>
+                                    <option value="AL">Alabama</option>
+                                    <option value="AR">Arkansas</option>
+                                    <option value="IL">Illinois</option>
+                                    <option value="IA">Iowa</option>
+                                    <option value="KS">Kansas</option>
+                                    <option value="KY">Kentucky</option>
+                                    <option value="LA">Louisiana</option>
+                                    <option value="MN">Minnesota</option>
+                                    <option value="MS">Mississippi</option>
+                                    <option value="MO">Missouri</option>
+                                    <option value="OK">Oklahoma</option>
+                                    <option value="SD">South Dakota</option>
+                                    <option value="TX">Texas</option>
+                                    <option value="TN">Tennessee</option>
+                                    <option value="WI">Wisconsin</option>
+                                    <option value="CT">Connecticut</option>
+                                    <option value="DE">Delaware</option>
+                                    <option value="FL">Florida</option>
+                                    <option value="GA">Georgia</option>
+                                    <option value="IN">Indiana</option>
+                                    <option value="ME">Maine</option>
+                                    <option value="MD">Maryland</option>
+                                    <option value="MA">Massachusetts</option>
+                                    <option value="MI">Michigan</option>
+                                    <option value="NH">New Hampshire</option>
+                                    <option value="NJ">New Jersey</option>
+                                    <option value="NY">New York</option>
+                                    <option value="NC">North Carolina</option>
+                                    <option value="OH">Ohio</option>
+                                    <option value="PA">Pennsylvania</option>
+                                    <option value="RI">Rhode Island</option>
+                                    <option value="SC">South Carolina</option>
+                                    <option value="VT">Vermont</option>
+                                    <option value="VA">Virginia</option>
+                                    <option value="WV">West Virginia</option>
+                                </select>
+                            </div>
                         </div>
                     </div><!--form-group-->
 
@@ -42,6 +145,14 @@
 
                         <div class="col-md-10">
                             <input type="email" name="email" class="form-control" placeholder="{{ __('E-mail Address') }}" value="{{ old('email') }}" maxlength="255" required />
+                        </div>
+                    </div><!--form-group-->
+                            
+                    <div class="form-group row">
+                        <label for="phone" class="col-md-2 col-form-label">@lang('Mobile Phone')</label>
+
+                        <div class="col-md-10">
+                            <input type="tel" name="phone" id="phone" class="form-control" value="{{ old('phone') }}" placeholder="{{ __('Mobile Phone') }}" maxlength="100" required autocomplete="phone" />
                         </div>
                     </div><!--form-group-->
 
@@ -74,7 +185,7 @@
                         </div>
                     </div><!--form-group-->
 
-                    <div class="form-group row">
+                    <div class="form-group row d-none">
                         <label for="active" class="col-md-2 col-form-label">@lang('Active')</label>
 
                         <div class="col-md-10">
@@ -84,7 +195,7 @@
                         </div>
                     </div><!--form-group-->
 
-                    <div x-data="{ emailVerified : false }">
+                    <div class="d-none" x-data="{ emailVerified : false }">
                         <div class="form-group row">
                             <label for="email_verified" class="col-md-2 col-form-label">@lang('E-mail Verified')</label>
 
@@ -129,3 +240,7 @@
         </x-backend.card>
     </x-forms.post>
 @endsection
+
+@push("after-scripts")
+<script src="{{ mix('js/user.js') }}"></script>
+@endpush
