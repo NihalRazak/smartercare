@@ -63,7 +63,7 @@
                 </div>
                 <div class="form-group col-md-3">
                     <label for="age">Age</label>
-                    <input class="form-control" id="age" type="number">
+                    <input class="form-control" id="age" type="number" min="18" max="150">
                 </div>
                 <div class="form-group col-md-3">
                     <label for="sex">Sex</label>

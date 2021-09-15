@@ -46,8 +46,7 @@ cardButton.addEventListener('click', async (e) => {
             card: card,
             billing_details: { name: cardHolderName.value }
         }
-    }
-    );
+    });
     if (error) {
         var errorElement = document.getElementById('card-errors');
         errorElement.textContent = error.message;
