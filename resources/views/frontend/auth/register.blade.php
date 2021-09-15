@@ -169,8 +169,11 @@
                             </div><!--form-group-->
 
                             <div class="form-group row">
-                                <label for="password" class="col-md-4 col-form-label text-md-right">@lang('Password')</label>
-
+                                <label for="password" class="col-md-4 col-form-label text-md-right">
+                                    @lang('Password')
+                                    <i class="fa fa-info-circle" aria-hidden="true" data-toggle="tooltip" title="The password must be at least 8 characters."></i>
+                                </label>
+                                
                                 <div class="col-md-6">
                                     <input type="password" name="password" id="password" class="form-control" placeholder="{{ __('Password') }}" maxlength="100" required autocomplete="new-password" />
                                 </div>
