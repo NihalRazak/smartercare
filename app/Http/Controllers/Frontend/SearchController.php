@@ -17,12 +17,10 @@ class SearchController
         $isSubscribed = false;
         $user = auth()->user();
         if ($user) {
-            $company_id = $user->company_id;
-            $company_admin = User::where('company_id', $company_id)->where('type', 2)->first();
             if ($user->isMasterAdmin()) {
                 $isSubscribed = true;
-            } else if (isset($company_admin)) {
-                $subscription = $company_admin->subscriptions()->active()->first();
+            } else {
+                $subscription = $user->subscriptions()->active()->first();
                 if (isset($subscription)) {
                     $isSubscribed = true;
                 }
