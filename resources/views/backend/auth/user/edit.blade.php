@@ -40,7 +40,7 @@
                     </div><!--form-group-->
 
                     <div class="form-group row">
-                        <label for="middle_name" class="col-md-2 col-form-label">@lang('Middle Name')</label>
+                        <label for="middle_name" class="col-md-2 col-form-label">@lang('Middle Name')(Optional)</label>
 
                         <div class="col-md-10">
                             <input type="text" name="middle_name" class="form-control" placeholder="{{ __('Middle Name') }}" value="{{ old('middle_name') ?? $user->middle_name }}" maxlength="100" />

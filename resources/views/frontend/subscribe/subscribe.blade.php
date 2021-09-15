@@ -46,7 +46,7 @@
                     <input class="form-control" id="first_name" type="text">
                 </div>
                 <div class="form-group col-md-4">
-                    <label for="name">Middle Name</label>
+                    <label for="name">Middle Name(Optional)</label>
                     <input class="form-control" id="middle_name" type="text">
                 </div>
                 <div class="form-group col-md-4">

@@ -22,7 +22,7 @@
                             </div><!--form-group-->
                             
                             <div class="form-group row">
-                                <label for="middle_name" class="col-md-4 col-form-label text-md-right">@lang('Middle Name')</label>
+                                <label for="middle_name" class="col-md-4 col-form-label text-md-right">@lang('Middle Name')(Optional)</label>
 
                                 <div class="col-md-6">
                                     <input type="text" name="middle_name" id="middle_name" class="form-control" value="{{ old('middle_name') }}" placeholder="{{ __('Middle Name') }}" maxlength="100" autocomplete="middle_name" />
