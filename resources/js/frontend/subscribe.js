@@ -36,7 +36,10 @@ const cardHolderName = document.getElementById('card-holder-name');
 const cardButton = document.getElementById('card-button');
 const clientSecret = cardButton.dataset.secret;
 cardButton.addEventListener('click', async (e) => {
-    console.log("attempting");
+    if (!$("input[name='plan']").val()) {
+        $("#card-errors").text("Please select the plan");
+        return ;
+    }
     const { setupIntent, error } = await stripe.confirmCardSetup(
         clientSecret, {
         payment_method: {
