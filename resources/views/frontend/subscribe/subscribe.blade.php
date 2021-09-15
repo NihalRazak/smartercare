@@ -17,7 +17,7 @@
                     @endphp
                     @foreach ($plans as $plan)
                         @if ($plan->active)
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="subscription-option">
                                     <input type="radio" id="plan-{{$plan->product->name}}" name="plan" value='{{$plan->id}}' {{ $subscription && $plan->id == $subscription->stripe_price ? 'checked' : '' }}>
                                     <label for="plan-{{$plan->product->name}}">
@@ -34,10 +34,10 @@
                             @endphp
                         @endif
                     @endforeach
+                    <div class="form-group col-md-4">
+                        <a href="#" id="add_dependent">+ Add a dependent</a><span style="color: #02026d;"> to 360 Smarter Care</span>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <a href="#" id="add_dependent">+ Add a dependent</a><span style="color: #02026d;"> to 360 Smarter Care</span>
             </div>
             <p class="notify-msg alert-danger p-2" style="display: none;">Please fill all fields.</p>
             <div class="row new-dependent" style="display: none;">
