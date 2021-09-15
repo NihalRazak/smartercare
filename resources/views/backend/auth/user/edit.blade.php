@@ -137,7 +137,7 @@
                                         ["value" => "WA", "name" => "Washington"], 
                                         ["value" => "WV", "name" => "West Virginia"], 
                                         ["value" => "WI", "name" => "Wisconsin"], 
-                                        ["value" => "WY", "name" => "Wyomin]g"
+                                        ["value" => "WY", "name" => "Wyoming"]
                                     ];
                                 @endphp
                                 <select class="form-control" id="address_state" name="address_state">
