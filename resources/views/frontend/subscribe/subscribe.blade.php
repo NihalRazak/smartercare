@@ -16,7 +16,7 @@
                         $i = 0;
                     @endphp
                     @foreach ($plans as $plan)
-                        @if ($plan->active)
+                        @if ($plan->active && $i == 0)
                             <div class="col-md-3">
                                 <div class="subscription-option">
                                     <input type="radio" id="plan-{{$plan->product->name}}" name="plan" value='{{$plan->id}}' {{ $subscription && $plan->id == $subscription->stripe_price ? 'checked' : '' }}>
@@ -27,7 +27,7 @@
                                 </div>
                             </div>
                             @if ($i == 0)
-                            <p class="col-md-2 mb-0" style="font-size: 17px; font-weight: bold; color: #02026d; line-height: 1.2;">Upgrade to</p>
+                            <!-- <p class="col-md-2 mb-0" style="font-size: 17px; font-weight: bold; color: #02026d; line-height: 1.2;">Upgrade to</p> -->
                             @endif
                             @php
                                 $i = 1;
