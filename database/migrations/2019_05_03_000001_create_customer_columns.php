@@ -29,12 +29,12 @@ class CreateCustomerColumns extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            // $table->dropColumn([
-            //     'stripe_id',
-            //     'pm_type',
-            //     'pm_last_four',
-            //     'trial_ends_at',
-            // ]);
+            $table->dropColumn([
+                'stripe_id',
+                'pm_type',
+                'pm_last_four',
+                'trial_ends_at',
+            ]);
         });
     }
 }
