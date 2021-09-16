@@ -41,7 +41,7 @@ class StoreUserRequest extends FormRequest
             'zip_code' => ['max:100'],
             'address_city' => ['required'],
             'address_state' => ['required'],
-            'phone' => ['required'],
+            'phone' => ['required', Rule::unique('users')],
             'company_id' => ['required'],
             'password' => ['max:100', PasswordRules::register($this->email)],
             'active' => ['sometimes', 'in:1'],

@@ -42,7 +42,7 @@ class UpdateUserRequest extends FormRequest
             'zip_code' => ['max:100'],
             'address_city' => ['required'],
             'address_state' => ['required'],
-            'phone' => ['required'],
+            'phone' => ['required', Rule::unique('users')],
             'email' => ['required', 'max:255', 'email', Rule::unique('users')->ignore($this->user->id)],
             'company_id' => ['required'],
             // 'roles' => ['sometimes', 'array'],
