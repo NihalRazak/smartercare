@@ -34,12 +34,12 @@
                             @endphp
                         @endif
                     @endforeach
-                    <div class="form-group col-md-4 d-none">
+                    <!-- <div class="form-group col-md-4 d-none">
                         <a href="#" id="add_dependent">+ Add a dependent</a><span style="color: #02026d;"> to 360 Smarter Care</span>
-                    </div>
+                    </div> -->
                 </div>
             </div>
-            <p class="notify-msg alert-danger p-2" style="display: none;">Please fill all fields.</p>
+            <!-- <p class="notify-msg alert-danger p-2" style="display: none;">Please fill all fields.</p>
             <div class="row new-dependent" style="display: none;">
                 <div class="form-group col-md-4">
                     <label for="name">First Name</label>
@@ -79,7 +79,7 @@
                     <button type="button" class="btn btn-sm btn-secondary" id="btn-cancel">Cancel</button>
                 </div>
             </div>
-            <div class="table-responsive">
+            <div class="table-responsive d-none">
                 <table class="table table-sm table-striped" id="table-dependent">
                     <thead>
                         <tr>
@@ -92,7 +92,7 @@
                     </thead>
                     <tbody></tbody>
                 </table>
-            </div>
+            </div> -->
             
             <div class="form-group">
                 <label for="card-holder-name">Card Holder Name</label>
