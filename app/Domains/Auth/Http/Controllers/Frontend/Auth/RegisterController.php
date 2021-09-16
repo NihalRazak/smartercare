@@ -76,7 +76,7 @@ class RegisterController
     {
         return Validator::make($data, [
             'first_name' => ['required', 'string', 'max:100'],
-            'middle_name' => ['string', 'max:100'],
+            'middle_name' => ['max:100'],
             'last_name' => ['required', 'string', 'max:100'],
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')],
             'password' => array_merge(['max:100'], PasswordRules::register($data['email'] ?? null)),
