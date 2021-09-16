@@ -36,7 +36,7 @@
                     </a>
                     @endif
                     @php
-                        $linkURL = $logged_in_user ? "/subscribe/" : "/register/";
+                        $linkURL = $logged_in_user ? "/subscribe/" : "/register/?url=subscribe";
                     @endphp
                     <a href="{{ $linkURL }}">
                         <img class="search-now" id="search_now_6" src="/img/Subscribe Button.png" />
