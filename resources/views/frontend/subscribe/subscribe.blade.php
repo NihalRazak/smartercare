@@ -16,12 +16,12 @@
                         $i = 0;
                     @endphp
                     @foreach ($plans as $plan)
-                        @if ($plan->active && $i == 0)
+                        @if ($plan->active)
                             <div class="col-md-3">
                                 <div class="subscription-option">
                                     <input type="radio" id="plan-{{$plan->product->name}}" name="plan" value='{{$plan->id}}' {{ $i == 0 || ($subscription && $plan->id == $subscription->stripe_price) ? 'checked' : '' }}>
                                     <label for="plan-{{$plan->product->name}}">
-                                        <span class="plan-price">$<span class="plan-price-number">{{$plan->product->description}}</span><small> /{{$plan->interval}}</small></span>
+                                        <span class="plan-price">$<span class="plan-price-number">{{$plan->product->price}}</span><small> /{{$plan->interval}}</small></span>
                                         <span class="plan-name">{{$plan->product->name}}</span>
                                     </label>
                                 </div>
