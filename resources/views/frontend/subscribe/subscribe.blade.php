@@ -17,7 +17,7 @@
                     @endphp
                     @foreach ($plans as $plan)
                         @if ($plan->active)
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <div class="subscription-option">
                                     <input type="radio" id="plan-{{$plan->product->name}}" name="plan" value='{{$plan->id}}' {{ $i == 0 || ($subscription && $plan->id == $subscription->stripe_price) ? 'checked' : '' }}>
                                     <label for="plan-{{$plan->product->name}}">
