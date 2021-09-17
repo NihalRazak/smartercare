@@ -21,7 +21,7 @@
                                 <div class="subscription-option">
                                     <input type="radio" id="plan-{{$plan->product->name}}" name="plan" value='{{$plan->id}}' {{ $i == 0 || ($subscription && $plan->id == $subscription->stripe_price) ? 'checked' : '' }}>
                                     <label for="plan-{{$plan->product->name}}">
-                                        <span class="plan-price">$<span class="plan-price-number">{{$plan->price}}</span><small> /{{$plan->interval}}</small></span>
+                                        <span class="plan-price">$<span class="plan-price-number">{{$plan->amount/100}}</span><small> /{{$plan->interval}}</small></span>
                                         <span class="plan-name">{{$plan->product->name}}</span>
                                     </label>
                                 </div>
