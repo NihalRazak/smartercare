@@ -12,6 +12,8 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use LangleyFoxall\LaravelNISTPasswordRules\PasswordRules;
 use App\Domains\Auth\Models\Company;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NewUserNotification;
 
 /**
  * Class RegisterController.
@@ -106,6 +108,11 @@ class RegisterController
         event(new Registered($user = $this->create($request->all())));
 
         $this->guard()->login($user);
+
+        // Send welcome email notification
+        $name = $user->first_name;
+        $email = $user->email;
+        Mail::to($email)->send(new NewUserNotification($name));
 
         if ($response = $this->registered($request, $user)) {
             return $response;

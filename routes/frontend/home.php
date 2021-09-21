@@ -9,6 +9,8 @@ use App\Http\Controllers\Frontend\SmartSizedController;
 use App\Http\Controllers\Frontend\AboutController;
 use App\Http\Controllers\Frontend\SubscriptionController;
 use App\Http\Controllers\Frontend\AdditionalInfoController;
+use App\Http\Controllers\Frontend\PrivacyController;
+use App\Http\Controllers\Frontend\TermsController;
 use Tabuna\Breadcrumbs\Trail;
 
 /*
@@ -44,6 +46,12 @@ Route::get('/smart-sized', [SmartSizedController::class, 'index'])
 
 Route::get('/about', [AboutController::class, 'index'])
     ->name('pages.about');
+    
+Route::get('/privacy', [PrivacyController::class, 'index'])
+    ->name('pages.privacy');
+
+Route::get('/terms', [TermsController::class, 'index'])
+    ->name('pages.terms');
 
 Route::group(['prefix' => 'subscribe', 
                 'as' => 'subscribe.', 
@@ -56,3 +64,5 @@ Route::group(['prefix' => 'additionalinfo', 'as' => 'additionalinfo.'], function
     Route::get('/', [AdditionalInfoController::class, 'index'])->name('index');
     Route::post('store', [AdditionalInfoController::class, 'store'])->name('store');
 });
+
+Route::get('send_email', [HomeController::class, 'send_email'])->name('send_email');

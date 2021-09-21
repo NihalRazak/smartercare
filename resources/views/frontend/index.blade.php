@@ -69,17 +69,17 @@
                         </a>
                     </div>
 
-                    <a href="/search/">
+                    <!-- <a href="/search/">
                         <img class="search-now" id="search_now_3" src="/img/Smarter-Search-Now-Note-20-570x1024.png" />
-                    </a>
+                    </a> -->
                     <p class="text-center mt-4"><em>As important as it is to be an educated medical care consumer, it is equally important to make your decisions in conjunction with your personal physician. Show them the results of your Smarter Search and confirm there are no comorbidities or conditions that warrant a procedure being done in a hospital setting at multiple times the cost of an outpatient facility. If in your physician’s professional opinion you are best served at a higher-priced facility that is exactly where your procedure should take place.&nbsp;</em></p>
                 </div>
                 <div class="footer">
                     <p class="text-center">
-                        <a href="https://360smartercare.com/advisor-assets/">Advisors</a>
-                        <a href="https://360smartercare.com/contact/">Contact</a>
-                        <a href="https://360smartercare.com/privacy/">Privacy Policy</a>
-                        <a href="https://360smartercare.com/terms-conditions/" data-type="URL" data-id="https://360smartercare.com/terms-conditions/"> Terms & Conditions</a>
+                        <!-- <a href="https://360smartercare.com/advisor-assets/">Advisors</a>
+                        <a href="https://360smartercare.com/contact/">Contact</a> -->
+                        <a href="/privacy/">Privacy Policy</a>
+                        <a href="/terms/"> Terms & Conditions</a>
                     </p>
                 </div>
             </div>
