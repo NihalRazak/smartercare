@@ -8,7 +8,7 @@
         <div class="content">
             <div class="container">
                 <div class="header text-center">
-                    @if (isset($logged_in_user) && !$logged_in_user->isMasterAdmin())
+                    @if (isset($logged_in_user) && isset($logged_in_user->company) && !$logged_in_user->isMasterAdmin())
                         <img class="logo-image" src="{{ $logged_in_user->company->avatar }}" id="{{ $logged_in_user->company->name }}" />
                     @endif
                     <img class="logo-image" id="logo" src="/img/logo.png" />
