@@ -112,4 +112,5 @@ class HomeController
         
         return 'Email sent Successfully';
     }
+
 }
