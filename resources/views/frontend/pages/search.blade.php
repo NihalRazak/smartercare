@@ -36,20 +36,25 @@
                                 <label>Is this your Healthcare Network?</label>
                                 <label>If not, select the correct Healthcare Network from the drop down menu.</label>
                             </div>
-                            <select class="col-md-6" id="network">
-                                @if ($isSubscribed)
-                                <option value="Aetna">Aetna</option>
-                                <option value="Blue_Shield">Blue Shield</option>
-                                <option value="Cigna">Cigna</option>
-                                <option value="Cofinity">Cofinity</option>
-                                <option value="Humana">Humana</option>
-                                <option value="Mecosta">Mecosta</option>
-                                <option value="PHCS">PHCS</option>
-                                <option value="United">United</option>
-                                <option value="UMPC">UMPC</option>
+                            <div class="col-md-6">
+                                <select class="form-control" id="network" style="display: inline-block; width: calc(100% - 50px);">
+                                    @if ($isSubscribed)
+                                    <option value="Aetna">Aetna</option>
+                                    <option value="Blue_Shield">Blue Shield</option>
+                                    <option value="Cigna">Cigna</option>
+                                    <option value="Cofinity">Cofinity</option>
+                                    <option value="Humana">Humana</option>
+                                    <option value="Mecosta">Mecosta</option>
+                                    <option value="PHCS">PHCS</option>
+                                    <option value="United">United</option>
+                                    <option value="UMPC">UMPC</option>
+                                    @endif
+                                    <option value="All_Providers" selected>All Providers</option>
+                                </select>
+                                @if (!$isSubscribed)
+                                    <a href="/subscribe/">Unlock</a>
                                 @endif
-                                <option value="All_Providers" selected>All Providers</option>
-                            </select>
+                            </div>
                         </div>
                     </div>
                     <div class="row tab flex-column" id="tab-careCategory" style="display: none;">
