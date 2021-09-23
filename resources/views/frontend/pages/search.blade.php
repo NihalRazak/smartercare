@@ -4,6 +4,10 @@
 
 @section('content')
     @include('frontend.includes.nav2')
+    
+    @php
+        $linkURL = $logged_in_user ? "/subscribe/" : "/register/?url=subscribe";
+    @endphp
     <div id="app" class="flex-center position-ref full-height">
         <div class="content">
             <div class="container">
@@ -52,7 +56,7 @@
                                     <option value="All_Providers" selected>All Providers</option>
                                 </select>
                                 @if (!$isSubscribed)
-                                    <a href="/subscribe/">Unlock</a>
+                                    <a href="{{$linkURL}}">Unlock</a>
                                 @endif
                             </div>
                         </div>
