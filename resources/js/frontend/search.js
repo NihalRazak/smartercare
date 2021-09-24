@@ -79,6 +79,15 @@ $(document).ready(function () {
         var zip_code = $("#zipCode").val();
         var network = $("#network").val();
         var categoryOrCPT = $("input[name='category_cpt']:checked").val();
+
+        $("#tab-result").empty();
+        $("#tab-careCategory").hide();
+        $("#tab-result").show();
+        $("#prev").hide();
+        $("#search").hide();
+        $("#expand").show();
+        $("#back").show();
+
         count_by_methods(categoryOrCPT, network);
         getProviders(zip_code).then((res) => {
             renderProviders();
@@ -164,12 +173,6 @@ $(document).ready(function () {
 
         $("#tab-result").empty();
         $("#tab-result").append(html);
-        $("#tab-careCategory").hide();
-        $("#tab-result").show();
-        $("#prev").hide();
-        $("#search").hide();
-        $("#expand").show();
-        $("#back").show();
     }
 
     $("#tab-result").on('click', '.facility_name', function (e) {
