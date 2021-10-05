@@ -178,18 +178,16 @@ $(document).ready(function () {
     $("#tab-result").on('click', '.facility_name', function (e) {
         e.preventDefault();
         var iframe = $(this).closest('.provider').find('.iframe');
-        $(this).text(window.navigator.platform);
-        alert(window.navigator.platform);
-        // if (iOS()) {
-        //     $(".provider .iframe").hide();
-        //     iframe.show();
-        // } else {
-        //     iframe.show();
-        //     var newWindow = window.open(iframe.attr("src"), iframe.attr("facility-name"));
-        //     newWindow.document.write(iframe[0].outerHTML);
-        //     newWindow.document.close();
-        //     iframe.hide();
-        // }
+        if (iOS()) {
+            $(".provider .iframe").hide();
+            iframe.show();
+        } else {
+            iframe.show();
+            var newWindow = window.open(iframe.attr("src"), iframe.attr("facility-name"));
+            newWindow.document.write(iframe[0].outerHTML);
+            newWindow.document.close();
+            iframe.hide();
+        }
         count_by_throughs("direction");
     });
 
