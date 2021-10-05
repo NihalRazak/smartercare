@@ -178,11 +178,16 @@ $(document).ready(function () {
     $("#tab-result").on('click', '.facility_name', function (e) {
         e.preventDefault();
         var iframe = $(this).closest('.provider').find('.iframe');
-        iframe.show();
-        var newWindow = window.open(iframe.attr("src"), iframe.attr("facility-name"));
-        newWindow.document.write(iframe[0].outerHTML);
-        newWindow.document.close();
-        iframe.hide();
+        if (iOS()) {
+            $(".provider .iframe").hide();
+            iframe.show();
+        } else {
+            iframe.show();
+            var newWindow = window.open(iframe.attr("src"), iframe.attr("facility-name"));
+            newWindow.document.write(iframe[0].outerHTML);
+            newWindow.document.close();
+            iframe.hide();
+        }
         count_by_throughs("direction");
     });
 
@@ -270,5 +275,18 @@ $(document).ready(function () {
         }).done(function (res) {
             console.log("res", res);
         });
+    }
+
+    function iOS() {
+        return [
+            'iPad Simulator',
+            'iPhone Simulator',
+            'iPod Simulator',
+            'iPad',
+            'iPhone',
+            'iPod'
+        ].includes(window.navigator.platform)
+            // iPad on iOS 13 detection
+            || (window.navigator.userAgent.includes("Mac") && "ontouchend" in document)
     }
 });
