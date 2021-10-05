@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', __('Terms & Conditions'))
+@section('title', __('Smart Sized'))
 
 @section('content')
     @include('frontend.includes.nav')
