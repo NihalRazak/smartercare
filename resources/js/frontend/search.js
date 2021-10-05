@@ -178,8 +178,8 @@ $(document).ready(function () {
     $("#tab-result").on('click', '.facility_name', function (e) {
         e.preventDefault();
         var iframe = $(this).closest('.provider').find('.iframe');
+        alert(window.navigator.platform);
         if (iOS()) {
-            alert(window.navigator.platform);
             $(".provider .iframe").hide();
             iframe.show();
         } else {
