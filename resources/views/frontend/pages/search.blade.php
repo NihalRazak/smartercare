@@ -42,7 +42,7 @@
                             </div>
                             <div class="col-md-6">
                                 <select class="form-control" id="network" style="display: inline-block; width: calc(100% - 50px);">
-                                    
+                                    @if ($isSubscribed)
                                     <option value="Aetna">Aetna</option>
                                     <option value="Blue_Shield">Blue Shield</option>
                                     <option value="Cigna">Cigna</option>
@@ -52,11 +52,12 @@
                                     <option value="PHCS">PHCS</option>
                                     <option value="United">United</option>
                                     <option value="UMPC">UMPC</option>
+                                    @endif
                                     <option value="All_Providers" selected>All Providers</option>
                                 </select>
-                                <!-- @if (!$isSubscribed)
+                                @if (!$isSubscribed)
                                     <a href="{{$linkURL}}">Unlock</a>
-                                @endif -->
+                                @endif
                             </div>
                         </div>
                     </div>
