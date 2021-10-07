@@ -23,7 +23,7 @@
                     @if (config('boilerplate.access.user.registration'))
                         @php
                             $register_url = route('frontend.auth.register');
-                            if ($agent->is('iPhone')) {
+                            if ($agent->is('iPhone') || $agent->is('iPad')) {
                                 $register_url = route('frontend.auth.register') . "/?url=search";
                             }
                         @endphp

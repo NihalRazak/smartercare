@@ -23,7 +23,7 @@ class HomeController
     public function index()
     {
         $agent = new Agent();
-        if ($agent->is('iPhone')) {
+        if ($agent->is('iPhone') || $agent->is('iPad')) {
             return view('frontend.pages.search', ['isSubscribed' => false]);
         } else {
             return view('frontend.index');
