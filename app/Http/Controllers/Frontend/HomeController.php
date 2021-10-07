@@ -9,7 +9,6 @@ use App\Domains\Auth\Models\Provider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\NewUserNotification;
-use Jenssegers\Agent\Agent;
 
 
 /**
