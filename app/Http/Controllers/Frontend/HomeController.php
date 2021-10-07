@@ -20,7 +20,8 @@ class HomeController
      */
     public function index()
     {
-        return view('frontend.index');
+        // return view('frontend.index');
+        return view('frontend.pages.search', ['isSubscribed' => false]);
     }
 
     public function get_zip_codes(Request $request)
