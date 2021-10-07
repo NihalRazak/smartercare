@@ -9,6 +9,10 @@ $(document).ready(function () {
     var arrRadius = [2, 5, 10, 25, 50];
     var iRadius = 0;
 
+    if (iOS()) {
+        $("#unlock").hide();
+    }
+
     count_visitors();
 
     $.ajax({

@@ -56,7 +56,7 @@
                                     <option value="All_Providers" selected>All Providers</option>
                                 </select>
                                 @if (!$isSubscribed)
-                                    <a href="{{$linkURL}}">Unlock</a>
+                                    <a href="{{$linkURL}}" id="unlock">Unlock</a>
                                 @endif
                             </div>
                         </div>
