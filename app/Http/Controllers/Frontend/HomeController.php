@@ -20,7 +20,7 @@ class HomeController
      */
     public function index()
     {
-        return view('frontend.index');
+        return view('frontend.pages.search');
     }
 
     public function get_zip_codes(Request $request)
