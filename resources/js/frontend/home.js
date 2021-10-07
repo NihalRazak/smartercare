@@ -1,10 +1,6 @@
 import Inputmask from "inputmask";
 
 $(document).ready(function () {
-    if (iOS()) {
-        window.location.href = "/search/";
-    }
-
     var selector = document.getElementById("phone");
     if (selector) {
         var im = new Inputmask("999-999-9999");
@@ -44,17 +40,4 @@ $(document).ready(function () {
             $("#address_city").val(data.city);
         });
     });
-
-    function iOS() {
-        return [
-            'iPad Simulator',
-            'iPhone Simulator',
-            'iPod Simulator',
-            'iPad',
-            'iPhone',
-            'iPod'
-        ].includes(window.navigator.platform)
-            // iPad on iOS 13 detection
-            || (window.navigator.userAgent.includes("Mac") && "ontouchend" in document)
-    }
 });
