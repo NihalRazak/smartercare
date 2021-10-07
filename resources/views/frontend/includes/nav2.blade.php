@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-dark shadow-sm">
     <div class="container">
-        <a class="navbar-brand" href="/">
+        <a class="navbar-brand" href="#">
             <img src="/img/360 Smart Care 5.14.2021.png" id="nav-logo" />
             Smartercare
         </a>
