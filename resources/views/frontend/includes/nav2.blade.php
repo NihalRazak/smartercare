@@ -21,9 +21,15 @@
                     </li>
 
                     @if (config('boilerplate.access.user.registration'))
+                        @php
+                            $register_url = route('frontend.auth.register');
+                            if ($agent->is('iPhone')) {
+                                $register_url = route('frontend.auth.register') . "/?url=search";
+                            }
+                        @endphp
                         <li class="nav-item">
                             <x-utils.link
-                                :href="route('frontend.auth.register')"
+                                :href="$register_url"
                                 :active="activeClass(Route::is('frontend.auth.register'))"
                                 :text="__('Register')"
                                 class="nav-link" />
