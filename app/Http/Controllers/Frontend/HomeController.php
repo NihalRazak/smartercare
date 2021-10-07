@@ -22,17 +22,7 @@ class HomeController
      */
     public function index()
     {
-        $agent = new Agent();
-        if ($agent->is('iPhone')) {
-            return redirect()->action(
-                [SearchController::class, 'index'], ['isSubscribed' => false]
-            );
-        } else {
-            return redirect()->action(
-                [SearchController::class, 'index'], ['isSubscribed' => false]
-            );
-            // return view('frontend.index');
-        }
+        return view('frontend.index');
     }
 
     public function get_zip_codes(Request $request)
