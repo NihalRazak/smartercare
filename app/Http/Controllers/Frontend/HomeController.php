@@ -28,7 +28,10 @@ class HomeController
                 [SearchController::class, 'index'], ['isSubscribed' => false]
             );
         } else {
-            return view('frontend.index');
+            return redirect()->action(
+                [SearchController::class, 'index'], ['isSubscribed' => false]
+            );
+            // return view('frontend.index');
         }
     }
 
