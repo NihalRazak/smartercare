@@ -9,6 +9,8 @@ use App\Domains\Auth\Models\Provider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\NewUserNotification;
+use Jenssegers\Agent\Agent;
+
 
 /**
  * Class HomeController.
@@ -20,8 +22,11 @@ class HomeController
      */
     public function index()
     {
-        // return view('frontend.index');
-        return view('frontend.pages.search', ['isSubscribed' => false]);
+        $agent = new Agent();
+        if ($agent->is('iPhone')) {
+            return view('frontend.pages.search', ['isSubscribed' => false]);
+        }
+        return view('frontend.index');
     }
 
     public function get_zip_codes(Request $request)
