@@ -24,8 +24,9 @@ class HomeController
     {
         $agent = new Agent();
         if ($agent->is('iPhone')) {
-            // return view('frontend.index');
-            return redirect()->route('pages.search', ['isSubscribed' => false]);
+            return redirect()->action(
+                [SearchController::class, 'index'], ['isSubscribed' => false]
+            );
         } else {
             return view('frontend.index');
         }
