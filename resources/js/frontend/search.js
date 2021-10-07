@@ -182,7 +182,7 @@ $(document).ready(function () {
     $("#tab-result").on('click', '.facility_name', function (e) {
         e.preventDefault();
         var iframe = $(this).closest('.provider').find('.iframe');
-        if (iOS()) {
+        if (iOS() || isMobile()) {
             $(".provider .iframe").hide();
             iframe.show();
         } else {
@@ -292,5 +292,12 @@ $(document).ready(function () {
         ].includes(window.navigator.platform)
             // iPad on iOS 13 detection
             || (window.navigator.userAgent.includes("Mac") && "ontouchend" in document)
+    }
+
+    function isMobile() {
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            return true;
+        }
+        return false;
     }
 });
