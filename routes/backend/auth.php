@@ -32,6 +32,10 @@ Route::group([
                         ->push(__('Deleted Users'), route('admin.auth.user.deleted'));
                 });
 
+            Route::post('import', [UserController::class, 'import'])->name('import');
+            
+            Route::get('download_template', [UserController::class, 'download_template'])->name('download_template');
+
             Route::get('create', [UserController::class, 'create'])
                 ->name('create')
                 ->breadcrumbs(function (Trail $trail) {

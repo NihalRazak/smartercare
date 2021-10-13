@@ -33,7 +33,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "bootstrap-fileinput": "^5.2.3",
+        "bootstrap-fileinput": "^5.2.6",
         "chart.js": "^3.5.0",
         "inputmask": "^5.0.6"
     }

@@ -33,7 +33,7 @@ class HomeController
     public function get_zip_codes(Request $request)
     {
         $miles = isset($request->miles) ? $request->miles : 1;
-        $postalCode = isset($request->postalCode) ? $request->postalCode : '10010';
+        $postalCode = isset($request->postalCode) ? $request->postalCode : '90010';
         $url = "https://www.zipcodeapi.com/rest/yBTkdHnS73ycblojmV3i2XIU7grzydk4sx9AqFraXdJMieULDfriMXqPgEvZ37md/radius.json/$postalCode/$miles/mile";
         echo file_get_contents($url);
     }

@@ -2,6 +2,8 @@
 
 namespace App\Domains\Auth\Http\Controllers\Backend\User;
 
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
 use App\Domains\Auth\Http\Requests\Backend\User\DeleteUserRequest;
 use App\Domains\Auth\Http\Requests\Backend\User\EditUserRequest;
 use App\Domains\Auth\Http\Requests\Backend\User\StoreUserRequest;
@@ -11,6 +13,10 @@ use App\Domains\Auth\Models\Company;
 use App\Domains\Auth\Services\PermissionService;
 use App\Domains\Auth\Services\RoleService;
 use App\Domains\Auth\Services\UserService;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Domains\Auth\Http\Imports\UserImport;
 
 /**
  * Class UserController.
@@ -52,6 +58,29 @@ class UserController
     public function index()
     {
         return view('backend.auth.user.index');
+    }
+
+    public function import(Request $request)
+    {
+        $file = $request->file('census');
+        DB::beginTransaction();
+
+        try {
+            Excel::import( new UserImport, $file );
+        } catch (Exception $e) {
+
+            DB::rollBack();
+
+            throw new GeneralException(__('There was a problem loading the census file. Please try again.'));
+        }
+        DB::commit();
+        
+        return redirect()->route('admin.auth.user.index')->withFlashSuccess(__('The users were successfully imported.'));
+    }
+
+    public function download_template()
+    {
+        return Storage::disk('public')->download('census_template.xlsx');
     }
 
     /**

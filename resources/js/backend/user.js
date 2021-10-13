@@ -1,6 +1,9 @@
 import Inputmask from "inputmask";
+require('bootstrap-fileinput');
 
 $(document).ready(function () {
+    $(".form-control-file").fileinput({'showUpload':false, 'previewFileType':'any'});
+
     var selector = document.getElementById("phone");
     if (selector) {
         var im = new Inputmask("999-999-9999");

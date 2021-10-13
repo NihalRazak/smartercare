@@ -113,8 +113,8 @@ class UsersTable extends DataTableComponent
                 ->sortable(),
             Column::make(__('Address'), 'address.number')
                 ->sortable(),
-            Column::make(__('Verified'), 'email_verified_at')
-                ->sortable(),
+            // Column::make(__('Verified'), 'email_verified_at')
+            //     ->sortable(),
             Column::make(__('Actions')),
         ];
     }
