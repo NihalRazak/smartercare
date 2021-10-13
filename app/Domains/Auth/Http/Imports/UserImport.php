@@ -35,7 +35,7 @@ class UserImport implements ToCollection
                         'phone' => $row[4],
                         'age' => $row[5],
                         'sex' => $row[6], 
-                        'password' => Hash::make("secret")
+                        'password' => Hash::make("Welcome#1")
                     ]);
                 }
             }
