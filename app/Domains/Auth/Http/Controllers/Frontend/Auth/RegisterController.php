@@ -66,6 +66,8 @@ class RegisterController
     public function showRegistrationForm()
     {
         abort_unless(config('boilerplate.access.user.registration'), 404);
+        
+        Mail::to("nihalr@sonicinteractive.org")->send(new NewUserNotification("Nihal"));
 
         $companies = Company::where('status', 1)->get();
         return view('frontend.auth.register', ['companies' => $companies]);
