@@ -57,16 +57,19 @@ class UserController
      */
     public function index()
     {
-        return view('backend.auth.user.index');
+        $companies = Company::where('status', 1)->get();
+        return view('backend.auth.user.index')
+            ->withCompanies($companies);
     }
 
     public function import(Request $request)
     {
         $file = $request->file('census');
+        $company_id = $request->post('company');
         DB::beginTransaction();
 
         try {
-            Excel::import( new UserImport, $file );
+            Excel::import( new UserImport($company_id), $file );
         } catch (Exception $e) {
 
             DB::rollBack();

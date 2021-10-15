@@ -24,6 +24,18 @@
 
             <x-slot name="body">
                 <div class="form-row">
+                    <div class="col-md-9">
+                        <div class="form-group">
+                            <label for="company">Company</label>
+                            <select class="form-control" name="company" id="company">
+                                @foreach($companies as $c)
+                                    <option value="{{ $c->id }}">{{ $c->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
                     <div class="col-md-9 file-input-group">
                         <div class="form-group">
                             <input type="file" class="form-control-file" name="census" data-show-preview="false">

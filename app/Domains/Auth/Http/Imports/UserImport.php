@@ -11,10 +11,13 @@ use App\Mail\NewUserNotification;
 
 class UserImport implements ToCollection
 {
+    public function __construct($company_id)
+    {
+        $this->company_id = $company_id;
+    }
+
     public function collection(Collection $rows)
     {
-        $company_id = auth()->user()->company_id;
-
         foreach ($rows as $row) 
         {
             $email = $row[3];
@@ -33,6 +36,7 @@ class UserImport implements ToCollection
                         'first_name' => $row[0],
                         'middle_name' => $row[1],
                         'last_name' => $row[2],
+                        'company_id' => $this->company_id,
                         'email' => $email,
                         'phone' => $row[4],
                         'age' => $row[5],
