@@ -12,15 +12,17 @@ class NewUserNotification extends Mailable
     use Queueable, SerializesModels;
     public $name;
     public $email;
+    public $company;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($name, $email)
+    public function __construct($name, $email, $company)
     {
         $this->name = $name;
         $this->email = $email;
+        $this->company = $company;
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Domains\Auth\Http\Imports;
 
 use App\Domains\Auth\Models\User;
+use App\Domains\Auth\Models\Company;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToCollection;
 use Illuminate\Support\Facades\Hash;
@@ -32,6 +33,7 @@ class UserImport implements ToCollection
                     $exist->sex = $row[6];
                     $exist->save();
                 } else {
+                    $company = Company::where('id', $this->company_id)->first()->name;
                     User::create([
                         'first_name' => $row[0],
                         'middle_name' => $row[1],
@@ -46,7 +48,7 @@ class UserImport implements ToCollection
                     
                     // Send welcome email notification
                     $name = $row[0];
-                    Mail::to($email)->send(new NewUserNotification($name, $email));
+                    Mail::to($email)->send(new NewUserNotification($name, $email, $company));
                 }
             }
         }
