@@ -6,6 +6,8 @@ use App\Domains\Auth\Models\User;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToCollection;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NewUserNotification;
 
 class UserImport implements ToCollection
 {
@@ -37,6 +39,10 @@ class UserImport implements ToCollection
                         'sex' => $row[6], 
                         'password' => Hash::make("Welcome#1")
                     ]);
+                    
+                    // Send welcome email notification
+                    $name = $row[0];
+                    Mail::to($email)->send(new NewUserNotification($name, $email));
                 }
             }
         }

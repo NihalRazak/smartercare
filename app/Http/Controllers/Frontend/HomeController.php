@@ -8,7 +8,6 @@ use App\Domains\Auth\Models\CptUrgentcare;
 use App\Domains\Auth\Models\Provider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\NewUserNotification;
 use Jenssegers\Agent\Agent;
 
 
@@ -110,14 +109,6 @@ class HomeController
             $query = Provider::where('type', $careCategory);
         }
         return $query->get();
-    }
-
-    public function send_email()
-    {
-        $name = 'Cloudways';
-        Mail::to('nihalr@sonicinteractive.org')->send(new NewUserNotification($name));
-        
-        return 'Email sent Successfully';
     }
 
 }

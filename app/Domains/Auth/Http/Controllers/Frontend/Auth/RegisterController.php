@@ -67,8 +67,6 @@ class RegisterController
     {
         abort_unless(config('boilerplate.access.user.registration'), 404);
         
-        Mail::to("nihalr@sonicinteractive.org")->send(new NewUserNotification("Nihal"));
-
         $companies = Company::where('status', 1)->get();
         return view('frontend.auth.register', ['companies' => $companies]);
     }
@@ -114,7 +112,7 @@ class RegisterController
         // Send welcome email notification
         $name = $user->first_name;
         $email = $user->email;
-        Mail::to($email)->send(new NewUserNotification($name));
+        Mail::to($email)->send(new NewUserNotification($name, NULL));
 
         if ($response = $this->registered($request, $user)) {
             return $response;

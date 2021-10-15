@@ -65,4 +65,3 @@ Route::group(['prefix' => 'additionalinfo', 'as' => 'additionalinfo.'], function
     Route::post('store', [AdditionalInfoController::class, 'store'])->name('store');
 });
 
-Route::get('send_email', [HomeController::class, 'send_email'])->name('send_email');

@@ -11,14 +11,16 @@ class NewUserNotification extends Mailable
 {
     use Queueable, SerializesModels;
     public $name;
+    public $email;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($name)
+    public function __construct($name, $email)
     {
         $this->name = $name;
+        $this->email = $email;
     }
 
     /**
@@ -28,6 +30,10 @@ class NewUserNotification extends Mailable
      */
     public function build()
     {
-        return $this->subject('Welcome to 360Smartersearch')->view('emails.newuser');
+        if ($this->email) {
+            return $this->subject('Welcome to 360Smartersearch')->view('emails.census');
+        } else {
+            return $this->subject('Welcome to 360Smartersearch')->view('emails.newuser');
+        }
     }
 }
