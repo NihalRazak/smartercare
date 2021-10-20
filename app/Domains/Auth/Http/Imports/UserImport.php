@@ -47,8 +47,8 @@ class UserImport implements ToCollection
                     ]);
                     
                     // Send welcome email notification
-                    $name = $row[0];
-                    Mail::to($email)->send(new NewUserNotification($name, $email, $company));
+                    // $name = $row[0];
+                    // Mail::to($email)->send(new NewUserNotification($name, $email, $company));
                 }
             }
         }
