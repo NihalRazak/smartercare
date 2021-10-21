@@ -14,6 +14,7 @@ use LangleyFoxall\LaravelNISTPasswordRules\PasswordRules;
 use App\Domains\Auth\Models\Company;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\NewUserNotification;
+use MailTemplate;
 
 /**
  * Class RegisterController.
@@ -112,7 +113,12 @@ class RegisterController
         // Send welcome email notification
         $name = $user->first_name;
         $email = $user->email;
-        Mail::to($email)->send(new NewUserNotification($name, NULL, NULL));
+        // Mail::to($email)->send(new NewUserNotification($name, NULL, NULL));
+
+        MailTemplate::to($email);
+        MailTemplate::replyTo('information@360smartersearch.com');
+        MailTemplate::attribute('FIRSTNAME', $name);
+        MailTemplate::send(17);
 
         if ($response = $this->registered($request, $user)) {
             return $response;

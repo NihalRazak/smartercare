@@ -17,6 +17,7 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "jamesmills/laravel-timezone": "^1.9",
         "jenssegers/agent": "^2.6",
+        "juanparati/sendinblue": "^8.0",
         "lab404/laravel-impersonate": "^1.6",
         "langleyfoxall/laravel-nist-password-rules": "^4.1",
         "laravel/cashier": "^13.4",

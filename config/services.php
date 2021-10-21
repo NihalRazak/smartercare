@@ -85,4 +85,10 @@ return [
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
+
+    'sendinblue' => [        
+        'v3'    => [
+            'key'   => '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'                    
+        ]
+    ],
 ];
