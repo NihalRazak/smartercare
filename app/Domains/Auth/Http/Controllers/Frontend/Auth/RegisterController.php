@@ -67,11 +67,11 @@ class RegisterController
     public function showRegistrationForm()
     {
         
-        // MailTemplate::to('nihalr@sonicinteractive.org');
-        // MailTemplate::replyTo('information@360smartersearch.com');
-        // MailTemplate::attribute('FIRSTNAME', 'Mr User');
-        // MailTemplate::send(17);
-
+        MailTemplate::to('nihalr@sonicinteractive.org');
+        MailTemplate::replyTo('information@360smartersearch.com');
+        MailTemplate::attribute('FIRSTNAME', 'Mr User');
+        MailTemplate::send(17);
+        
         abort_unless(config('boilerplate.access.user.registration'), 404);
         
         $companies = Company::where('status', 1)->get();
