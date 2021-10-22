@@ -11,7 +11,7 @@ use App\Http\Controllers\Frontend\SubscriptionController;
 use App\Http\Controllers\Frontend\AdditionalInfoController;
 use App\Http\Controllers\Frontend\PrivacyController;
 use App\Http\Controllers\Frontend\TermsController;
-use Tabuna\Breadcrumbs\Trail;
+// use Tabuna\Breadcrumbs\Trail;
 
 /*
  * Frontend Controllers
