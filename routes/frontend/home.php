@@ -18,10 +18,7 @@ use Tabuna\Breadcrumbs\Trail;
  * All route names are prefixed with 'frontend.'.
  */
 Route::get('/', [HomeController::class, 'index'])
-    ->name('index')
-    ->breadcrumbs(function (Trail $trail) {
-        $trail->push(__('Home'), route('frontend.index'));
-    });
+    ->name('index');
 
 Route::post('zip_codes', [HomeController::class, 'get_zip_codes'])->name('zip_codes');
 Route::post('providers', [HomeController::class, 'get_providers'])->name('providers');
