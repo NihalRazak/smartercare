@@ -21,7 +21,6 @@ class HomeController
      */
     public function index()
     {
-        return view('frontend.index');
         $agent = new Agent();
         if ($agent->is('iPhone') || $agent->is('iPad')) {
             return view('frontend.pages.search', ['isSubscribed' => false]);
