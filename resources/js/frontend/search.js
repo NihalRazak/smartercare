@@ -169,7 +169,7 @@ $(document).ready(function () {
             if (iRadius == 5) {
                 html += `
                     <div class="provider">
-                        <p>There is no filtered providers.</p>
+                        <p>There are no filtered providers.</p>
                     </div>
                 `;
             }
