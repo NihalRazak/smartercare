@@ -169,7 +169,7 @@
                     </div><!--form-group-->
         
 
-                    <div class="form-group row d-none">
+                    <div class="form-group row">
                         <label for="company" class="col-md-2 col-form-label">@lang('Company')</label>
 
                         <div class="col-md-10">

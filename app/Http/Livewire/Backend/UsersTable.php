@@ -21,18 +21,18 @@ class UsersTable extends DataTableComponent
     /**
      * @var array|string[]
      */
-    public array $sortNames = [
-        'email_verified_at' => 'Verified',
-        'two_factor_auth_count' => '2FA',
-    ];
+    // public array $sortNames = [
+    //     'email_verified_at' => 'Verified',
+    //     'two_factor_auth_count' => '2FA',
+    // ];
 
     /**
      * @var array|string[]
      */
-    public array $filterNames = [
-        'type' => 'User Type',
-        'verified' => 'E-mail Verified',
-    ];
+    // public array $filterNames = [
+    //     'type' => 'User Type',
+    //     'verified' => 'E-mail Verified',
+    // ];
 
     /**
      * @param  string  $status
@@ -47,10 +47,8 @@ class UsersTable extends DataTableComponent
      */
     public function query(): Builder
     {
-        $query = User::with('roles', 'twoFactorAuth')
-                    ->withCount('twoFactorAuth')
-                    ->with('company')
-                    ->with('address');
+        $query = User::with('roles', 'twoFactorAuth', 'company', 'address')
+        ->withCount('twoFactorAuth');
 
         if ($this->status === 'deleted') {
             $query = $query->onlyTrashed();
@@ -59,12 +57,10 @@ class UsersTable extends DataTableComponent
         } else {
             $query = $query->onlyActive();
         }
-
         return $query
             ->when($this->getFilter('search'), fn ($query, $term) => $query->search($term))
             ->when($this->getFilter('type'), fn ($query, $type) => $query->where('type', $type))
-            ->when($this->getFilter('active'), fn ($query, $active) => $query->where('active', $active === 'yes'))
-            ->when($this->getFilter('verified'), fn ($query, $verified) => $verified === 'yes' ? $query->whereNotNull('email_verified_at') : $query->whereNull('email_verified_at'));
+            ->when($this->getFilter('active'), fn ($query, $active) => $query->where('active', $active === 'yes'));
     }
 
     /**
@@ -80,18 +76,6 @@ class UsersTable extends DataTableComponent
                     User::TYPE_COMPANY_ADMIN => 'Company Administrators',
                     User::TYPE_USER => 'Users',
                 ]),
-            'active' => Filter::make('Active')
-                ->select([
-                    '' => 'Any',
-                    'yes' => 'Yes',
-                    'no' => 'No',
-                ]),
-            'verified' => Filter::make('E-mail Verified')
-                ->select([
-                    '' => 'Any',
-                    'yes' => 'Yes',
-                    'no' => 'No',
-                ]),
         ];
     }
 
@@ -105,16 +89,17 @@ class UsersTable extends DataTableComponent
                 ->sortable(),
             Column::make(__('Name'))
                 ->sortable(),
-            Column::make(__('Company'))
-                ->sortable(),
+            Column::make(__('Company'), 'company.name')
+                ->sortable()
+                ->sortable(function(Builder $query, $direction) {
+                    return $query->orderBy('companies.name', $direction);
+                }),
             Column::make(__('E-mail'), 'email')
                 ->sortable(),
             Column::make(__('Mobile Phone'), 'phone')
                 ->sortable(),
             Column::make(__('Address'), 'address.number')
                 ->sortable(),
-            // Column::make(__('Verified'), 'email_verified_at')
-            //     ->sortable(),
             Column::make(__('Actions')),
         ];
     }

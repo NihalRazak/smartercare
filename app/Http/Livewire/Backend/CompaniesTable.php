@@ -18,8 +18,8 @@ class CompaniesTable extends DataTableComponent
      */
     public function query(): Builder
     {
-        $query = Company::select("*");
-        return $query;
+        return Company::query()
+            ->when($this->getFilter('search'), fn ($query, $search) => $query->where('name', 'like', '%'.$search.'%'));
     }
 
     /**
@@ -31,10 +31,6 @@ class CompaniesTable extends DataTableComponent
             Column::make(__('Name'))
                 ->sortable(),
             Column::make(__('Status'))
-                ->sortable(function ($builder, $direction) {
-                    return $builder->orderBy('status', $direction);
-                }),
-            Column::make(__('IsPaid'))
                 ->sortable(),
             Column::make(__('Actions'))
         ];
