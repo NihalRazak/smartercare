@@ -61,27 +61,27 @@
                         <div class="col-md-10 row">
                             <div class="form-group col-md-4">
                                 <label for="address_number">Number</label>
-                                <input type="text" name="address_number" id="address_number" class="form-control" placeholder="{{ __('Street Number') }}" value="{{ $user->address->number }}" maxlength="255" required />
+                                <input type="text" name="address_number" id="address_number" class="form-control" placeholder="{{ __('Street Number') }}" value="{{ isset($user->address) ? $user->address->number : '' }}" maxlength="255" required />
                             </div>
 
                             <div class="form-group col-md-4">
                                 <label for="address_street_name">Street Name</label>
-                                <input type="text" name="address_street_name" id="address_street_name" class="form-control" placeholder="{{ __('Street Name') }}" value="{{ $user->address->street_name }}" maxlength="255" required />
+                                <input type="text" name="address_street_name" id="address_street_name" class="form-control" placeholder="{{ __('Street Name') }}" value="{{ isset($user->address) ? $user->address->street_name : '' }}" maxlength="255" required />
                             </div>
 
                             <div class="form-group col-md-4">
                                 <label for="apt_or_unit">Apt or Unit (Optional)</label>
-                                <input type="text" name="apt_or_unit" id="apt_or_unit" class="form-control" placeholder="{{ __('Apt or Unit') }}" value="{{ $user->address->apt_or_unit }}" maxlength="255" />
+                                <input type="text" name="apt_or_unit" id="apt_or_unit" class="form-control" placeholder="{{ __('Apt or Unit') }}" value="{{ isset($user->address) ? $user->address->apt_or_unit : '' }}" maxlength="255" />
                             </div>
 
                             <div class="form-group col-md-4">
                                 <label for="zip_code">Zip Code</label>
-                                <input type="text" name="zip_code" id="zip_code" class="form-control" placeholder="{{ __('Zip Code') }}" value="{{ $user->address->zip_code }}" maxlength="255" />
+                                <input type="text" name="zip_code" id="zip_code" class="form-control" placeholder="{{ __('Zip Code') }}" value="{{ isset($user->address) ? $user->address->zip_code : '' }}" maxlength="255" />
                             </div>
                         
                             <div class="form-group col-md-4">
                                 <label for="address_city">City</label>
-                                <input type="text" name="address_city" id="address_city" class="form-control" placeholder="{{ __('City') }}" maxlength="255" value="{{ $user->address->city }}" required />
+                                <input type="text" name="address_city" id="address_city" class="form-control" placeholder="{{ __('City') }}" maxlength="255" value="{{ isset($user->address) ? $user->address->city : '' }}" required />
                             </div>
 
                             <div class="form-group col-md-4">
@@ -145,7 +145,7 @@
                                         @php
                                             $country = $countries[$i];
                                         @endphp
-                                        <option value="{{ $country['value'] }}" {{ $country['value'] == $user->address->state ? "selected" : "" }}>{{ $country['name'] }}</option>
+                                        <option value="{{ $country['value'] }}" {{ isset($user->address) && $country['value'] == $user->address->state ? "selected" : "" }}>{{ $country['name'] }}</option>
                                     @endfor
                                 </select>
                             </div>
