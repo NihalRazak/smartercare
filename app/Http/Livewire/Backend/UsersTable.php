@@ -3,6 +3,9 @@
 namespace App\Http\Livewire\Backend;
 
 use App\Domains\Auth\Models\User;
+use App\Domains\Auth\Models\Company;
+use App\Domains\Auth\Models\Address;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
@@ -47,7 +50,7 @@ class UsersTable extends DataTableComponent
      */
     public function query(): Builder
     {
-        $query = User::with('roles', 'twoFactorAuth', 'company', 'address')
+        $query = User::with('roles', 'twoFactorAuth')
         ->withCount('twoFactorAuth');
 
         if ($this->status === 'deleted') {
@@ -90,16 +93,17 @@ class UsersTable extends DataTableComponent
             Column::make(__('Name'))
                 ->sortable(),
             Column::make(__('Company'), 'company.name')
-                ->sortable()
                 ->sortable(function(Builder $query, $direction) {
-                    return $query->orderBy('companies.name', $direction);
+                    return $query->orderBy(Company::select('name')->whereColumn('companies.id', 'users.company_id'), $direction);
                 }),
             Column::make(__('E-mail'), 'email')
                 ->sortable(),
             Column::make(__('Mobile Phone'), 'phone')
                 ->sortable(),
             Column::make(__('Address'), 'address.number')
-                ->sortable(),
+                ->sortable(function(Builder $query, $direction) {
+                    return $query->orderBy(Address::select(DB::raw("CONCAT(number, ' ', street_name, ' ', apt_or_unit) AS address_string"))->whereColumn('users.id', 'addresses.user_id'), $direction);
+                }),
             Column::make(__('Actions')),
         ];
     }
