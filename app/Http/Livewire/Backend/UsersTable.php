@@ -61,9 +61,7 @@ class UsersTable extends DataTableComponent
             $query = $query->onlyActive();
         }
         return $query
-            ->when($this->getFilter('search'), fn ($query, $term) => $query->search($term))
-            ->when($this->getFilter('type'), fn ($query, $type) => $query->where('type', $type))
-            ->when($this->getFilter('active'), fn ($query, $active) => $query->where('active', $active === 'yes'));
+            ->when($this->getFilter('search'), fn ($query, $search) => $query->where(DB::raw("CONCAT(first_name, ' ', middle_name, ' ', last_name)"), 'like', '%'.$search.'%'));
     }
 
     /**
@@ -91,7 +89,9 @@ class UsersTable extends DataTableComponent
             Column::make(__('Type'))
                 ->sortable(),
             Column::make(__('Name'))
-                ->sortable(),
+                ->sortable(function(Builder $query, $direction) {
+                    return $query->select(["*", DB::raw("CONCAT(first_name, ' ', last_name) AS full_name")])->orderBy('full_name', $direction);
+                }),
             Column::make(__('Company'), 'company.name')
                 ->sortable(function(Builder $query, $direction) {
                     return $query->orderBy(Company::select('name')->whereColumn('companies.id', 'users.company_id'), $direction);

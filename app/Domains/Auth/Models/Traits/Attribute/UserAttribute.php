@@ -67,4 +67,9 @@ trait UserAttribute
             })
             ->implode('<br/>');
     }
+
+    public function getFullNameAttribute()
+    {
+        return $this->first_name . " " . $this->middle_name . " " . $this->last_name;
+    }
 }
