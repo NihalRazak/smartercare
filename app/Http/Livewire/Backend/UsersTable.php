@@ -61,7 +61,7 @@ class UsersTable extends DataTableComponent
             $query = $query->onlyActive();
         }
         return $query
-            ->when($this->getFilter('search'), fn ($query, $search) => $query->where(DB::raw("CONCAT(first_name, ' ', middle_name, ' ', last_name)"), 'like', '%'.$search.'%'));
+            ->when($this->getFilter('search'), fn ($query, $search) => $query->where(DB::raw("CONCAT(first_name, ' ', IFNULL(middle_name, ''), ' ', last_name)"), 'like', '%'.$search.'%'));
     }
 
     /**
@@ -90,7 +90,7 @@ class UsersTable extends DataTableComponent
                 ->sortable(),
             Column::make(__('Name'))
                 ->sortable(function(Builder $query, $direction) {
-                    return $query->select(["*", DB::raw("CONCAT(first_name, ' ', last_name) AS full_name")])->orderBy('full_name', $direction);
+                    return $query->select(["*", DB::raw("CONCAT(first_name, ' ', IFNULL(middle_name, ''), ' ', last_name) AS full_name")])->orderBy('full_name', $direction);
                 }),
             Column::make(__('Company'), 'company.name')
                 ->sortable(function(Builder $query, $direction) {
