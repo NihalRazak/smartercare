@@ -40,7 +40,8 @@ class CompanyService extends BaseService
                 'name' => $data['name'],
                 'avatar' => $data['avatar'],
                 'status' => isset($data['status']) ? $data['status'] : 1,
-                'isPaid' => isset($data['isPaid']) ? $data['isPaid'] : 0
+                'isPaid' => 0,
+                'default_provider' => $data['default_provider']
             ]);
         } catch (Exception $e) {
             DB::rollBack();
@@ -68,7 +69,8 @@ class CompanyService extends BaseService
             $company->update([
                 'name' => $data['name'],
                 'avatar' => isset($data['avatar']) ? $data['avatar'] : $company->avatar,
-                'status' => isset($data['status']) ? $data['status'] : $company->status
+                'status' => isset($data['status']) ? $data['status'] : $company->status,
+                'default_provider' => isset($data['default_provider']) ? $data['default_provider'] : $company->default_provider
             ]);
         } catch (Exception $e) {
             DB::rollBack();
@@ -132,7 +134,8 @@ class CompanyService extends BaseService
         return $this->model::create([
             'name' => $data['name'] ?? null,
             'status' => $data['status'] ?? 1,
-            'isPaid' => $data['isPaid'] ?? 1
+            'isPaid' => 0,
+            'default_provider' => $data['default_provider'] ?? null
         ]);
     }
 }

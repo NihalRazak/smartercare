@@ -172,7 +172,7 @@
                             <div class="form-group row">
                                 <label for="password" class="col-md-4 col-form-label text-md-right">
                                     @lang('Password')
-                                    <i class="fa fa-info-circle" aria-hidden="true" data-toggle="tooltip" title="The password must be at least 8 characters."></i>
+                                    <i class="fa fa-info-circle" aria-hidden="true" data-toggle="tooltip" title="The password must be at least 16 characters."></i>
                                 </label>
                                 
                                 <div class="col-md-6">

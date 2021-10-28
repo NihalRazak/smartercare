@@ -21,6 +21,7 @@ class Company extends Model
         'name',
         'avatar',
         'status',
-        'isPaid'
+        'isPaid',
+        'default_provider'
     ];
 }

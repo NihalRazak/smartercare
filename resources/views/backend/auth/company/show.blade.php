@@ -25,6 +25,11 @@
                 </tr>
 
                 <tr>
+                    <th>@lang('Default Provider')</th>
+                    <td>{{ $company->default_provider }}</td>
+                </tr>
+
+                <tr>
                     <th>@lang('Status')</th>
                     <td>@include('backend.auth.company.includes.status', ['company' => $company])</td>
                 </tr>

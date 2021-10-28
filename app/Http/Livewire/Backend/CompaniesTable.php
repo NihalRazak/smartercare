@@ -30,6 +30,8 @@ class CompaniesTable extends DataTableComponent
         return [
             Column::make(__('Name'))
                 ->sortable(),
+            Column::make(__('Default Provider'))
+                ->sortable(),
             Column::make(__('Status'))
                 ->sortable(),
             Column::make(__('Actions'))

@@ -31,6 +31,31 @@
                             <input type="file" class="form-control-file" name="avatar" data-show-preview="false">
                         </div>
                     </div><!--form-group-->
+                    <div class="form-group row">
+                        <label for="default_provider" class="col-md-2 col-form-label">@lang('Network Provider')</label>
+
+                        <div class="col-md-10">
+                            @php
+                                $providers = [
+                                    'All Providers' => 'All Providers',
+                                    'Aetna' => 'Aetna', 
+                                    'Blue Shield' => 'Blue Shield',
+                                    'Cigna' => 'Cigna',
+                                    'Cofinity' => 'Cofinity',
+                                    'Humana' => 'Humana',
+                                    'Mecosta' => 'Mecosta',
+                                    'PHCS' => 'PHCS',
+                                    'United' => 'United',
+                                    'UMPC' => 'UMPC'
+                                ];
+                            @endphp
+                            <select class="form-control" name="default_provider" id="default_provider">
+                                @foreach ($providers as $key => $value)
+                                    <option value="{{ $key }}" {{ $key == $company->default_provider ? "selected" : "" }}>{{ $value }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div><!--form-group-->
                 </div>
             </x-slot>
 
