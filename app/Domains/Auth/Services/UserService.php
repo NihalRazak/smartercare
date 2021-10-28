@@ -205,14 +205,26 @@ class UserService extends BaseService
             ]);
 
             $address = Address::where('user_id', $user->id)->first();
-            $address->update([
-                'number' => $data['address_number'],
-                'street_name' => $data['address_street_name'],
-                'apt_or_unit' => $data['apt_or_unit'],
-                'zip_code' => $data['zip_code'],
-                'city' => $data['address_city'],
-                'state' => $data['address_state']
-            ]);
+            if ($address) {
+                $address->update([
+                    'number' => $data['address_number'],
+                    'street_name' => $data['address_street_name'],
+                    'apt_or_unit' => $data['apt_or_unit'],
+                    'zip_code' => $data['zip_code'],
+                    'city' => $data['address_city'],
+                    'state' => $data['address_state']
+                ]);
+            } else {
+                $address = $this->createAddress([
+                    'address_number' => $data['address_number'],
+                    'address_street_name' => $data['address_street_name'],
+                    'apt_or_unit' => $data['apt_or_unit'],
+                    'zip_code' => $data['zip_code'],
+                    'address_city' => $data['address_city'],
+                    'address_state' => $data['address_state'],
+                    'user_id' => $user->id
+                ]);
+            }
 
             if (! $user->isMasterAdmin()) {
                 // Replace selected roles/permissions
