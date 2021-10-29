@@ -44,13 +44,13 @@
                                 <select class="form-control" id="network" style="display: inline-block; width: calc(100% - 50px);">
                                     @if ($isSubscribed)
                                     <option value="Aetna">Aetna</option>
-                                    <option value="Blue_Shield">Blue Shield</option>
+                                    <option value="Blue_Shield">Blue Cross</option>
                                     <option value="Cigna">Cigna</option>
                                     <option value="Cofinity">Cofinity</option>
                                     <option value="Humana">Humana</option>
                                     <option value="Mecosta">Mecosta</option>
                                     <option value="PHCS">PHCS</option>
-                                    <option value="United">United</option>
+                                    <option value="United">United Healthcare</option>
                                     <option value="UMPC">UMPC</option>
                                     @endif
                                     <option value="All_Providers" selected>All Providers</option>

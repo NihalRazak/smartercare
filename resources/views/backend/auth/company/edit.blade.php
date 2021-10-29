@@ -37,15 +37,15 @@
                         <div class="col-md-10">
                             @php
                                 $providers = [
-                                    'All Providers' => 'All Providers',
+                                    'All_Providers' => 'All Providers',
                                     'Aetna' => 'Aetna', 
-                                    'Blue Shield' => 'Blue Shield',
+                                    'Blue Shield' => 'Blue Cross',
                                     'Cigna' => 'Cigna',
                                     'Cofinity' => 'Cofinity',
                                     'Humana' => 'Humana',
                                     'Mecosta' => 'Mecosta',
                                     'PHCS' => 'PHCS',
-                                    'United' => 'United',
+                                    'United' => 'United Healthcare',
                                     'UMPC' => 'UMPC'
                                 ];
                             @endphp

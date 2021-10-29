@@ -44,13 +44,13 @@
                                 @php
                                     $providers = [
                                         'Aetna' => 'Aetna', 
-                                        'Blue Shield' => 'Blue Shield',
+                                        'Blue Shield' => 'Blue Cross',
                                         'Cigna' => 'Cigna',
                                         'Cofinity' => 'Cofinity',
                                         'Humana' => 'Humana',
                                         'Mecosta' => 'Mecosta',
                                         'PHCS' => 'PHCS',
-                                        'United' => 'United',
+                                        'United' => 'United Healthcare',
                                         'UMPC' => 'UMPC'
                                     ];
                                     $company = $logged_in_user->company;
@@ -61,7 +61,7 @@
                                             @foreach($providers as $key => $value)
                                                 <option value="{{ $key }}" {{ isset($company) && $key == $company->default_provider ? "selected" : "" }}>{{ $value }}</option>
                                             @endforeach
-                                        @elseif (isset($company) && $company->default_provider != 'All Providers')
+                                        @elseif (isset($company) && $company->default_provider != 'All_Providers')
                                             @foreach($providers as $key => $value)
                                                 @if ($company->default_provider == $key)
                                                     <option value="{{ $key }}">{{ $value }}</option>
@@ -69,7 +69,7 @@
                                             @endforeach
                                         @endif
                                     @else
-                                        <option value="All Providers" selected>All Providers</option>
+                                        <option value="All_Providers" selected>All Providers</option>
                                     @endif
                                 </select>
                                 @if (!$isSubscribed)
