@@ -17,7 +17,7 @@
 </x-livewire-tables::bs4.table.cell>
 
 <x-livewire-tables::bs4.table.cell>
-    {{ $providers[$row->default_provider] }}
+    {{ $row->default_provider ? $providers[$row->default_provider] : $row->default_provider }}
 </x-livewire-tables::bs4.table.cell>
 
 <x-livewire-tables::bs4.table.cell>
