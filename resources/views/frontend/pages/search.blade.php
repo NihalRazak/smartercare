@@ -41,19 +41,55 @@
                                 <label>If not, select the correct Healthcare Network from the drop down menu.</label>
                             </div>
                             <div class="col-md-6">
+                                @php
+                                    $providers = [
+                                        'Aetna' => 'Aetna', 
+                                        'Blue Shield' => 'Blue Cross',
+                                        'Cigna' => 'Cigna',
+                                        'Cofinity' => 'Cofinity',
+                                        'Humana' => 'Humana',
+                                        'Mecosta' => 'Mecosta',
+                                        'PHCS' => 'PHCS',
+                                        'United' => 'United Healthcare',
+                                        'UMPC' => 'UMPC'
+                                    ];
+                                    $company = $logged_in_user->company;
+                                @endphp
                                 <select class="form-control" id="network" style="display: inline-block; width: calc(100% - 50px);">
-                                    @if ($isSubscribed)
-                                    <option value="Aetna">Aetna</option>
-                                    <option value="Blue_Shield">Blue Cross</option>
-                                    <option value="Cigna">Cigna</option>
-                                    <option value="Cofinity">Cofinity</option>
-                                    <option value="Humana">Humana</option>
-                                    <option value="Mecosta">Mecosta</option>
-                                    <option value="PHCS">PHCS</option>
-                                    <option value="United">United Healthcare</option>
-                                    <option value="UMPC">UMPC</option>
+                                    @if ($logged_in_user->isMasterAdmin())
+                                        @foreach($providers as $key => $value)
+                                            <option value="{{ $key }}">{{ $value }}</option>
+                                        @endforeach
+                                        <option value="All_Providers">All Providers</option>
+                                    @else
+                                        @if ($isSubscribed)
+                                            @if (isset($company) && $company->default_provider == '')
+                                                <option value="All_Providers">All Providers</option>
+                                                @foreach($providers as $key => $value)
+                                                    <option value="{{ $key }}" {{ isset($company) && $key == $company->default_provider ? "selected" : "" }}>{{ $value }}</option>
+                                                @endforeach
+                                            @elseif (isset($company) && $company->default_provider != 'All_Providers')
+                                                <option value="All_Providers">All Providers</option>
+                                                @foreach($providers as $key => $value)
+                                                    @if ($company->default_provider == $key)
+                                                        <option value="{{ $key }}" selected>{{ $value }}</option>
+                                                    @else
+                                                        <option value="{{ $key }}">{{ $value }}</option>
+                                                    @endif
+                                                @endforeach
+                                            @endif
+                                        @else
+                                            @if (isset($company) && $company->default_provider != 'All_Providers')
+                                                @foreach($providers as $key => $value)
+                                                    @if ($company->default_provider == $key)
+                                                        <option value="{{ $key }}">{{ $value }}</option>
+                                                    @endif
+                                                @endforeach
+                                            @else
+                                                <option value="All_Providers" selected>All Providers</option>
+                                            @endif
+                                        @endif
                                     @endif
-                                    <option value="All_Providers" selected>All Providers</option>
                                 </select>
                                 @if (!$isSubscribed)
                                     <a href="{{$linkURL}}" id="unlock">Unlock</a>

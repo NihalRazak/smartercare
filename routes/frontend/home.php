@@ -64,6 +64,3 @@ Route::group(['prefix' => 'additionalinfo', 'as' => 'additionalinfo.'], function
     Route::get('/', [AdditionalInfoController::class, 'index'])->name('index');
     Route::post('store', [AdditionalInfoController::class, 'store'])->name('store');
 });
-
-Route::get('/search/{company}', [SearchController::class, 'company'])
-    ->name('pages.companyPage');

@@ -69,7 +69,15 @@
                                             @endforeach
                                         @endif
                                     @else
-                                        <option value="All_Providers" selected>All Providers</option>
+                                        @if (isset($company) && $company->default_provider != 'All_Providers')
+                                            @foreach($providers as $key => $value)
+                                                @if ($company->default_provider == $key)
+                                                    <option value="{{ $key }}">{{ $value }}</option>
+                                                @endif
+                                            @endforeach
+                                        @else
+                                            <option value="All_Providers" selected>All Providers</option>
+                                        @endif
                                     @endif
                                 </select>
                                 @if (!$isSubscribed)

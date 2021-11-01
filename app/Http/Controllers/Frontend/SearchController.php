@@ -29,26 +29,4 @@ class SearchController
         }
         return view('frontend.pages.search', ['isSubscribed' => $isSubscribed]);
     }
-
-    public function company($company)
-    {
-        $isSubscribed = false;
-        $user = auth()->user();
-        $companies = Company::where('name', $company)->get();
-        if (isset($user)) {
-            if (($user->isMasterAdmin() && count($companies)) || (isset($user->company) && $user->company->name == $company)) {
-                if ($user->isMasterAdmin()) {
-                    $isSubscribed = true;
-                } else {
-                    $subscription = $user->subscriptions()->active()->first();
-                    if (isset($subscription)) {
-                        $isSubscribed = true;
-                    }
-                }
-            } else {
-                abort(404);
-            }
-        }
-        return view('frontend.pages.company', ['isSubscribed' => $isSubscribed]);
-    }
 }
