@@ -176,7 +176,7 @@
                         </label>
                         <div class="col-md-10">
                             <input type="password" name="password" id="password" class="form-control" placeholder="{{ __('Password') }}" maxlength="100" required autocomplete="new-password"
-                                passwordrules="required: upper; required: lower; required: digit; minlength: 16; required: [-().&@?'#,/&quot;+]" />
+                                passwordrules="required: upper; required: lower; required: digit; minlength: 16; required: special" />
                         </div>
                     </div><!--form-group-->
 

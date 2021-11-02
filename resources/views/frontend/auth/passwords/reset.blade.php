@@ -28,7 +28,7 @@
 
                                 <div class="col-md-6">
                                     <input type="password" id="password" name="password" class="form-control" placeholder="{{ __('Password') }}" maxlength="100" required autocomplete="new-password"
-                                        passwordrules="required: upper; required: lower; required: digit; minlength: 16; required: [-().&@?'#,/&quot;+]" />
+                                        passwordrules="required: upper; required: lower; required: digit; minlength: 16; required: special" />
                                 </div>
                             </div><!--form-group-->
 

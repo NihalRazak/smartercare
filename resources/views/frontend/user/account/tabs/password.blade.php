@@ -12,7 +12,7 @@
 
         <div class="col-md-9">
             <input type="password" name="password" class="form-control" placeholder="{{ __('New Password') }}" maxlength="100" required 
-                passwordrules="required: upper; required: lower; required: digit; minlength: 16; required: [-().&@?'#,/&quot;+]"/>
+                passwordrules="required: upper; required: lower; required: digit; minlength: 16; required: special"/>
         </div>
     </div><!--form-group-->
 
