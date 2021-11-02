@@ -44,7 +44,7 @@
                                 @php
                                     $providers = [
                                         'Aetna' => 'Aetna', 
-                                        'Blue Shield' => 'Blue Cross',
+                                        'Blue_Shield' => 'Blue Cross',
                                         'Cigna' => 'Cigna',
                                         'Cofinity' => 'Cofinity',
                                         'Humana' => 'Humana',

@@ -2,7 +2,7 @@
     $providers = [
         'All_Providers' => 'All Providers',
         'Aetna' => 'Aetna', 
-        'Blue Shield' => 'Blue Cross',
+        'Blue_Shield' => 'Blue Cross',
         'Cigna' => 'Cigna',
         'Cofinity' => 'Cofinity',
         'Humana' => 'Humana',
