@@ -27,7 +27,8 @@
                                 <label for="password" class="col-md-4 col-form-label text-md-right">@lang('Password')</label>
 
                                 <div class="col-md-6">
-                                    <input type="password" id="password" name="password" class="form-control" placeholder="{{ __('Password') }}" maxlength="100" required autocomplete="new-password" />
+                                    <input type="password" id="password" name="password" class="form-control" placeholder="{{ __('Password') }}" maxlength="100" required autocomplete="new-password"
+                                        passwordrules="required: upper; required: lower; required: digit; minlength: 16; required: [-().&@?'#,/&quot;+]" />
                                 </div>
                             </div><!--form-group-->
 
