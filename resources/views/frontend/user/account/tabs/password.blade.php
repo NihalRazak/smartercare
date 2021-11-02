@@ -11,8 +11,8 @@
         <label for="password" class="col-md-3 col-form-label text-md-right">@lang('New Password')</label>
 
         <div class="col-md-9">
-            <input type="password" name="password" class="form-control" placeholder="{{ __('New Password') }}" maxlength="100" required 
-                passwordrules="required: upper; required: lower; required: digit; minlength: 16; required: special"/>
+            <input type="password" name="password" class="form-control" placeholder="{{ __('New Password') }}" maxlength="100" minlength = "16" required 
+                passwordrules="required: upper; required: lower; required: digit; required: special"/>
         </div>
     </div><!--form-group-->
 
