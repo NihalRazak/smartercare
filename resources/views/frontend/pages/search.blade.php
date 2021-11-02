@@ -54,7 +54,6 @@
                                         'UMPC' => 'UMPC'
                                     ];
                                     $company = $logged_in_user->company;
-                                    print_r($logged_in_user);
                                 @endphp
                                 <select class="form-control" id="network" style="display: inline-block; width: calc(100% - 50px);">
                                     @if ($logged_in_user->isMasterAdmin() || (isset($company) && $company->default_provider == 'Any'))
@@ -92,7 +91,7 @@
                                         @endif
                                     @endif
                                 </select>
-                                @if (!$isSubscribed)
+                                @if (!$isSubscribed || !(isset($company) && $company->default_provider == 'Any'))
                                     <a href="{{$linkURL}}" id="unlock">Unlock</a>
                                 @endif
                             </div>
