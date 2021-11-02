@@ -176,9 +176,9 @@
                                 </label>
                                 
                                 <div class="col-md-6">
-                                <input type="password" autocomplete="new-password" 
-  passwordrules="required: upper; required: lower; required: digit; 
-                 minlength: 25; allowed: [-().&@?'#,/&quot;+]; max-consecutive: 2">                                </div>
+                                    <input type="password" name="password" id="password" class="form-control" placeholder="{{ __('Password') }}" maxlength="100" required autocomplete="new-password"
+                                        passwordrules="minlength: 16; required: upper; required: lower; required: digit; required: special" />
+                                </div>
                             </div><!--form-group-->
 
                             <div class="form-group row">
