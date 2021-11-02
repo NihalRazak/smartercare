@@ -56,7 +56,7 @@
                                     $company = $logged_in_user->company;
                                 @endphp
                                 <select class="form-control" id="network" style="display: inline-block; width: calc(100% - 50px);">
-                                    @if ($logged_in_user->isMasterAdmin())
+                                    @if ($logged_in_user->isMasterAdmin() || (isset($company) && $company->default_provider == 'Any'))
                                         @foreach($providers as $key => $value)
                                             <option value="{{ $key }}">{{ $value }}</option>
                                         @endforeach

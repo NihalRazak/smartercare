@@ -46,7 +46,8 @@
                                     'Mecosta' => 'Mecosta',
                                     'PHCS' => 'PHCS',
                                     'United' => 'United Healthcare',
-                                    'UMPC' => 'UMPC'
+                                    'UMPC' => 'UMPC',
+                                    'Any' => 'Search Any Network'
                                 ];
                             @endphp
                             <select class="form-control" name="default_provider" id="default_provider">

@@ -9,7 +9,8 @@
         'Mecosta' => 'Mecosta',
         'PHCS' => 'PHCS',
         'United' => 'United Healthcare',
-        'UMPC' => 'UMPC'
+        'UMPC' => 'UMPC',
+        'Any' => 'Search Any Network'
     ];
 @endphp
 <x-livewire-tables::bs4.table.cell>
