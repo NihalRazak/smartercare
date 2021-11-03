@@ -34,7 +34,7 @@ class UpdatePasswordRequest extends FormRequest
             'password' => array_merge(
                 [
                     'max:100',
-                    Password::min(16)->mixedCase()->letters()->symbols(),
+                    Password::min(15)->mixedCase()->letters()->numbers(),
                     new UnusedPassword($this->user()),
                 ],
                 PasswordRules::changePassword(
