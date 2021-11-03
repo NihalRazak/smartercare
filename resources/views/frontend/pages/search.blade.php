@@ -53,10 +53,10 @@
                                         'United' => 'United Healthcare',
                                         'UMPC' => 'UMPC'
                                     ];
-                                    $company = isset($logged_in_user->company) ? $logged_in_user->company : null;
+                                    $company = isset($logged_in_user) && isset($logged_in_user->company) ? $logged_in_user->company : null;
                                 @endphp
                                 <select class="form-control" id="network" style="display: inline-block; width: calc(100% - 50px);">
-                                    @if ($logged_in_user->isMasterAdmin() || (isset($company) && $company->default_provider == 'Any'))
+                                    @if ((isset($logged_in_user) && $logged_in_user->isMasterAdmin()) || (isset($company) && $company->default_provider == 'Any'))
                                         @foreach($providers as $key => $value)
                                             <option value="{{ $key }}">{{ $value }}</option>
                                         @endforeach
@@ -91,7 +91,7 @@
                                         @endif
                                     @endif
                                 </select>
-                                @if (!$logged_in_user->isMasterAdmin() && !$isSubscribed && !(isset($company) && $company->default_provider == 'Any'))
+                                @if (isset($logged_in_user) && !$logged_in_user->isMasterAdmin() && !$isSubscribed && !(isset($company) && $company->default_provider == 'Any'))
                                     <a href="{{$linkURL}}" id="unlock">Unlock</a>
                                 @endif
                             </div>
