@@ -5,6 +5,7 @@ use App\Domains\Auth\Models\CptBloodwork;
 use App\Domains\Auth\Models\CptImaging;
 use App\Domains\Auth\Models\CptSurgery;
 use App\Domains\Auth\Models\CptUrgentcare;
+use App\Domains\Auth\Models\GreenImaging;
 use App\Domains\Auth\Models\Provider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -71,6 +72,19 @@ class HomeController
         $providers = $this->filter_providers($zipCode, $network, $careCategory);
         
         echo json_encode($providers);
+    }
+    
+    public function green_imaging(Request $request)
+    {
+        $CPTCode = isset($request->CPTCode) ? $request->CPTCode : NULL;
+        $zipCode = isset($request->zipCode) ? $request->zipCode : NULL;
+        if (strlen($CPTCode) == 5) {
+            $cpt = GreenImaging::where('cpts', 'like', '%'.$CPTCode.'%')
+                    ->where('zip_code', $zipCode)
+                    ->get();
+            return $cpt;
+        }
+        return [];
     }
 
     private function get_cpt_bloodwork($cpt_code)

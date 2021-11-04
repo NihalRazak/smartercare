@@ -25,6 +25,7 @@ Route::get('/', [HomeController::class, 'index'])
 
 Route::post('zip_codes', [HomeController::class, 'get_zip_codes'])->name('zip_codes');
 Route::post('providers', [HomeController::class, 'get_providers'])->name('providers');
+Route::post('green_imaging', [HomeController::class, 'green_imaging'])->name('green_imaging');
 
 
 Route::post('count_visitor', [AnalyticsController::class, 'count_visitor'])->name('count_visitor');

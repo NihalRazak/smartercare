@@ -204,10 +204,40 @@ $(document).ready(function () {
         if (t == "category") {
             $("#CPTCode").prop('disabled', true);
             $("#careCategory").prop('disabled', false);
+            $("#green_imaging").prop('disabled', true);
         } else {
             $("#careCategory").prop('disabled', true);
             $("#CPTCode").prop('disabled', false);
+            $("#green_imaging").prop('disabled', false);
         }
+    });
+
+    $("#CPTCode").on('change', function () {
+        var post_url = "/green_imaging";
+        var cpt = $(this).val();
+        $("#green_imaging").empty();
+        var html = "";
+        get_zip_codes(5).then((res) => {
+            res.forEach(element => {
+                console.log(element);
+                $.ajax({
+                    url: post_url,
+                    method: 'post',
+                    dataType: 'json',
+                    data: {
+                        CPTCode: cpt,
+                        zipCode: element,
+                        '_token': $('meta[name="csrf-token"]').attr('content')
+                    }
+                }).done(function (res) {
+                    res.forEach(element => {
+                        html += `<option value="${element.zip_code}">${element.facility_name}</option>`;
+                    });
+                    $("#green_imaging").html(html);
+                });
+            });
+        });
+        
     });
 
     function get_zip_codes(miles) {
@@ -234,7 +264,7 @@ $(document).ready(function () {
                 arrZipCodes = zip_codes;
                 zipCodes = zip_codes.join(",");
                 console.log(zipCodes);
-                resolve();
+                resolve(zip_codes);
             });
         });
     }
