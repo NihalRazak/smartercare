@@ -119,7 +119,7 @@
                             </div>
                             <input class="col-md-6 form-control" type="text" id="CPTCode" disabled />
                         </div>
-                        <div class="col-md-6 form-group row mx-auto align-items-center">
+                        <div class="col-md-6 form-group row mx-auto align-items-center d-none">
                             <div class="col-md-5 offset-md-1">
                                 <label for="green_imaging">Green Imaging</label>
                             </div>
