@@ -4,6 +4,7 @@ $(document).ready(function () {
     var lng = -121.9552356;
     var postalCode;
     var providers = [];
+    var cashServices = [];
     var zipCodes;
     var arrZipCodes = [];
     var arrRadius = [2, 5, 10, 25, 50];
@@ -82,6 +83,7 @@ $(document).ready(function () {
     $("#search").on('click', function () {
         var zip_code = $("#zipCode").val();
         var network = $("#network").val();
+        var category = $("#careCategory").val();
         var categoryOrCPT = $("input[name='category_cpt']:checked").val();
 
         $("#tab-result").empty();
@@ -93,12 +95,22 @@ $(document).ready(function () {
         $("#back").show();
 
         count_by_methods(categoryOrCPT, network);
-        getProviders(zip_code).then((res) => {
-            renderProviders();
-        });
+
+        if (network != "Green_Imaging") {
+            getProviders(zip_code).then((res) => {
+                renderProviders();
+            });
+        } else if (category == "Imaging Center" || categoryOrCPT == "cpt") {
+            getCashServices(zip_code).then((res) => {
+                renderCashServices();
+            });
+        }
     });
 
     $("#expand").on('click', function () {
+        var network = $("#network").val();
+        var category = $("#careCategory").val();
+        var categoryOrCPT = $("input[name='category_cpt']:checked").val();
         if (iRadius == 5) {
             return;
         }
@@ -106,9 +118,15 @@ $(document).ready(function () {
         iRadius++;
         $("#expand").attr("title", `Get all providers in ${arrRadius[iRadius]} miles radius.`);
         get_zip_codes(radius).then((res) => {
-            getProviders(zipCodes).then((res) => {
-                renderProviders();
-            });
+            if (network != "Green_Imaging") {
+                getProviders(zipCodes).then((res) => {
+                    renderProviders();
+                });
+            } else if (category == "Imaging Center" || categoryOrCPT == "cpt") {
+                getCashServices(zipCodes).then((res) => {
+                    renderCashServices();
+                });
+            }
         });
     });
 
@@ -166,10 +184,66 @@ $(document).ready(function () {
         });
         if (providers.length < 2) {
             $("#expand").trigger('click');
-            if (iRadius == 5) {
+            if (iRadius == 5 && providers.length == 0) {
                 html += `
                     <div class="provider">
                         <p>There are no filtered providers.</p>
+                    </div>
+                `;
+            }
+        }
+
+        $("#tab-result").empty();
+        $("#tab-result").append(html);
+    }
+
+    function getCashServices(zip_code) {
+        return new Promise((resolve, reject) => {
+            var cptCode = $("#CPTCode").val();
+            var categoryOrCPT = $("input[name='category_cpt']:checked").val();
+
+            $.ajax({
+                url: "/green_imaging",
+                method: 'post',
+                data: {
+                    'zipCode': zip_code,
+                    'cptCode': cptCode,
+                    'categoryOrCPT': categoryOrCPT,
+                    '_token': $('meta[name="csrf-token"]').attr('content')
+                },
+                dataType: 'json'
+            }).done(function (res) {
+                cashServices = [];
+                arrZipCodes.forEach(e => {
+                    res.forEach(t => {
+                        if (t.zip_code == e) {
+                            cashServices.push(t);
+                        }
+                    });
+                });
+                resolve();
+            });
+        });
+    }
+
+    function renderCashServices() {
+        var html = "";
+        cashServices.slice(0, 10).forEach(p => {
+            html += `
+                <div class="provider">
+                    <p class="facility_name" style="pointer-events: none">${p.facility_name}</p>
+                    <p class="address">${p.street_address}, ${p.city}, ${p.state} ${p.zip_code}</p>
+                    <a href="tel:${p.telephone}" class="telephone">${p.telephone}</a>
+                </div>
+            `;
+        });
+        
+        if (cashServices.length < 2) {
+            $("#expand").trigger('click');
+            if (iRadius == 5 && cashServices.length == 0) {
+                html += `
+                    <div class="provider">
+                        <p>There are no filtered cash services.</p>
                     </div>
                 `;
             }
@@ -212,33 +286,33 @@ $(document).ready(function () {
         }
     });
 
-    $("#CPTCode").on('change', function () {
-        var post_url = "/green_imaging";
-        var cpt = $(this).val();
-        $("#green_imaging").empty();
-        var html = "";
-        get_zip_codes(5).then((res) => {
-            res.forEach(element => {
-                console.log(element);
-                $.ajax({
-                    url: post_url,
-                    method: 'post',
-                    dataType: 'json',
-                    data: {
-                        CPTCode: cpt,
-                        zipCode: element,
-                        '_token': $('meta[name="csrf-token"]').attr('content')
-                    }
-                }).done(function (res) {
-                    res.forEach(element => {
-                        html += `<option value="${element.zip_code}">${element.facility_name}</option>`;
-                    });
-                    $("#green_imaging").html(html);
-                });
-            });
-        });
+    // $("#CPTCode").on('change', function () {
+    //     var post_url = "/green_imaging";
+    //     var cpt = $(this).val();
+    //     $("#green_imaging").empty();
+    //     var html = "";
+    //     get_zip_codes(5).then((res) => {
+    //         res.forEach(element => {
+    //             console.log(element);
+    //             $.ajax({
+    //                 url: post_url,
+    //                 method: 'post',
+    //                 dataType: 'json',
+    //                 data: {
+    //                     CPTCode: cpt,
+    //                     zipCode: element,
+    //                     '_token': $('meta[name="csrf-token"]').attr('content')
+    //                 }
+    //             }).done(function (res) {
+    //                 res.forEach(element => {
+    //                     html += `<option value="${element.zip_code}">${element.facility_name}</option>`;
+    //                 });
+    //                 $("#green_imaging").html(html);
+    //             });
+    //         });
+    //     });
         
-    });
+    // });
 
     function get_zip_codes(miles) {
         return new Promise((resolve, reject) => {

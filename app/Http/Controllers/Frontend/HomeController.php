@@ -76,11 +76,16 @@ class HomeController
     
     public function green_imaging(Request $request)
     {
-        $CPTCode = isset($request->CPTCode) ? $request->CPTCode : NULL;
+        $CPTCode = isset($request->cptCode) ? $request->cptCode : NULL;
         $zipCode = isset($request->zipCode) ? $request->zipCode : NULL;
-        if (strlen($CPTCode) == 5) {
+        $categoryOrCPT = isset($request->categoryOrCPT) ? $request->categoryOrCPT : NULL;
+        if ($categoryOrCPT == "cpt" && strlen($CPTCode) == 5) {
             $cpt = GreenImaging::where('cpts', 'like', '%'.$CPTCode.'%')
-                    ->where('zip_code', $zipCode)
+                    ->whereIn('zip_code', explode(',', $zipCode))
+                    ->get();
+            return $cpt;
+        } else if ($categoryOrCPT != "cpt") {
+            $cpt = GreenImaging::whereIn('zip_code', explode(',', $zipCode))
                     ->get();
             return $cpt;
         }
