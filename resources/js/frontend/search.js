@@ -83,7 +83,6 @@ $(document).ready(function () {
     $("#search").on('click', function () {
         var zip_code = $("#zipCode").val();
         var network = $("#network").val();
-        var category = $("#careCategory").val();
         var categoryOrCPT = $("input[name='category_cpt']:checked").val();
 
         $("#tab-result").empty();
@@ -100,7 +99,7 @@ $(document).ready(function () {
             getProviders(zip_code).then((res) => {
                 renderProviders();
             });
-        } else if (category == "Imaging Center" || categoryOrCPT == "cpt") {
+        } else {
             getCashServices(zip_code).then((res) => {
                 renderCashServices();
             });
@@ -109,8 +108,6 @@ $(document).ready(function () {
 
     $("#expand").on('click', function () {
         var network = $("#network").val();
-        var category = $("#careCategory").val();
-        var categoryOrCPT = $("input[name='category_cpt']:checked").val();
         if (iRadius == 5) {
             return;
         }
@@ -122,7 +119,7 @@ $(document).ready(function () {
                 getProviders(zipCodes).then((res) => {
                     renderProviders();
                 });
-            } else if (category == "Imaging Center" || categoryOrCPT == "cpt") {
+            } else {
                 getCashServices(zipCodes).then((res) => {
                     renderCashServices();
                 });
@@ -227,26 +224,36 @@ $(document).ready(function () {
     }
 
     function renderCashServices() {
+        var category = $("#careCategory").val();
+        var categoryOrCPT = $("input[name='category_cpt']:checked").val();
         var html = "";
-        cashServices.slice(0, 10).forEach(p => {
-            html += `
-                <div class="provider">
-                    <p class="facility_name" style="pointer-events: none">${p.facility_name}</p>
-                    <p class="address">${p.street_address}, ${p.city}, ${p.state} ${p.zip_code}</p>
-                    <a href="tel:${p.telephone}" class="telephone">${p.telephone}</a>
-                </div>
-            `;
-        });
-        
-        if (cashServices.length < 2) {
-            $("#expand").trigger('click');
-            if (iRadius == 5 && cashServices.length == 0) {
+        if (category == "Imaging Center" || categoryOrCPT == "cpt") {
+            cashServices.slice(0, 10).forEach(p => {
                 html += `
                     <div class="provider">
-                        <p>There are no filtered cash services.</p>
+                        <p class="facility_name" style="pointer-events: none">${p.facility_name}</p>
+                        <p class="address">${p.street_address}, ${p.city}, ${p.state} ${p.zip_code}</p>
+                        <a href="tel:${p.telephone}" class="telephone">${p.telephone}</a>
                     </div>
                 `;
+            });
+            
+            if (cashServices.length < 2) {
+                $("#expand").trigger('click');
+                if (iRadius == 5 && cashServices.length == 0) {
+                    html += `
+                        <div class="provider">
+                            <p>There are no filtered cash services.</p>
+                        </div>
+                    `;
+                }
             }
+        } else {
+            html = `
+                <div class="provider">
+                    <p>There are no filtered cash services.</p>
+                </div>
+            `;
         }
 
         $("#tab-result").empty();
