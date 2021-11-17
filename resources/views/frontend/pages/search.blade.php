@@ -92,7 +92,7 @@
                                         @endif
                                     @endif
                                 </select>
-                                @if (!isset($logged_in_user) || (!$logged_in_user->isMasterAdmin() && !$isSubscribed && !(isset($company) && $company->default_provider == 'Any')))
+                                @if (!isset($logged_in_user) || (!$logged_in_user->isMasterAdmin() && !$isSubscribed && !isset($company)))
                                     <a href="{{$linkURL}}" id="unlock">Unlock</a>
                                 @endif
                             </div>
